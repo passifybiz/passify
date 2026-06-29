@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { loginSchema } from "@/lib/validation";
 
 export default function LoginPage() {
@@ -51,7 +52,7 @@ export default function LoginPage() {
     <div className="page">
       <div className="container--x-narrow" style={{ margin: "0 auto", paddingTop: "120px" }}>
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
-          <div className="wordmark" style={{ fontSize: "28px", marginBottom: "8px" }}>Passify</div>
+          <Link href="/" className="wordmark" style={{ fontSize: "28px", marginBottom: "8px", display: "inline-block", textDecoration: "none" }}>Passify</Link>
           <p className="help-text">Identity verification for tokenized assets.</p>
         </div>
 
