@@ -28,7 +28,7 @@ async function redisSet(key: string, value: string, ttlSeconds: number): Promise
   const { redis } = await import("./db/redis");
   if (redis) {
     try {
-      await redis.set(key, value, "EX", ttlSeconds);
+      await redis.set(key, value, { ex: ttlSeconds });
       return;
     } catch {
       /* fall through */

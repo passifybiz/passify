@@ -96,7 +96,7 @@ export const attestations = pgTable(
     createdAt: now(),
   },
   (t) => ({
-    attestationIdUnique: uniqueIndex("attestations_attestation_id_unique").on(t.attestationId),
+    attestationIdUnique: unique("attestations_attestation_id_unique").on(t.attestationId),
     pubkeyIdx: uniqueIndex("idx_attestations_pubkey_schema").on(t.userPubkey, t.schemaId, t.expiresAt),
   }),
 );

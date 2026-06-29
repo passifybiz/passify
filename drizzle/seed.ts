@@ -164,7 +164,7 @@ async function main() {
   // In the dashboard create-key flow the plaintext is shown once and never stored.
   function makeKey(prefix: string) {
     const raw = `passify_live_${prefix}${randomBytes(20).toString("hex")}`;
-    return { raw, hash: sha256hex(raw), display: raw.slice(0, 16) };
+    return { raw, hash: sha256hex(raw), display: raw.slice(0, 8) };
   }
   const keyA = makeKey("xK2m");
   const keyB = makeKey("pQ9r");
@@ -211,6 +211,7 @@ async function main() {
   const daysFromNow = (d: number) => new Date(Date.now() + d * 86_400_000);
 
   const attestationRows: Array<{
+    id: string;
     attestationId: string;
     userPubkey: string;
     schemaId: string;
@@ -241,7 +242,7 @@ async function main() {
 
     const attestationId = `att_${(i + 1).toString().padStart(4, "0")}`;
     const dataHash = sha256hex(`payload::${u.seed}`);
-    await db.insert(attestations).values({
+    const [att] = await db.insert(attestations).values({
       attestationId,
       sessionId: session.id,
       userPubkey: pubkey,
@@ -253,8 +254,8 @@ async function main() {
       jurisdiction: u.jurisdiction,
       expiresAt: daysFromNow(180 - i * 5),
       createdAt: completed,
-    });
-    attestationRows.push({ attestationId, userPubkey: pubkey, schemaId: u.schema, jurisdiction: u.jurisdiction, issuer: u.issuer });
+    }).returning();
+    attestationRows.push({ id: att.id, attestationId, userPubkey: pubkey, schemaId: u.schema, jurisdiction: u.jurisdiction, issuer: u.issuer });
   }
 
   // ── Attestation reads (reuse signal) ──────────────────────
@@ -282,7 +283,7 @@ async function main() {
       actor: "system",
       action: "attestation_issued",
       entityType: "attestation",
-      entityId: attestationRows[0]!.userPubkey as unknown as string,
+      entityId: attestationRows[0]!.id,
       newValue: { attestationId: "att_0001" },
       createdAt: minsAgo(198),
     },
