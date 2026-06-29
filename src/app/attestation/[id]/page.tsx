@@ -93,7 +93,7 @@ export default async function AttestationDetailPage({ params }: { params: Promis
           <p className="text-muted text-sm">No platforms have read this attestation yet.</p>
         ) : (
           <div className="card card--pad">
-            {reads.map((r, i) => (
+            {reads.map((r: { platformName: string; readAt: string }, i) => (
               <div key={i} className="reuse-item">
                 {r.platformName} — {formatDateTime(r.readAt)}
               </div>
