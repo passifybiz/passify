@@ -1,5 +1,3 @@
 {
-  "name": "passify",
-  "regions": ["iad1"],
-  "public": true
+  "regions": ["iad1"]
 }
