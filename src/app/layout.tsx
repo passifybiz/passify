@@ -46,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body>
+        <script dangerouslySetInnerHTML={{ __html: "try{Object.defineProperty(window,'ethereum',{configurable:!0,get(){return void 0},set(v){Object.defineProperty(window,'ethereum',{configurable:!0,writable:!0,value:v})}})}catch(e){}" }} />
         <a href="#main-content" className="skip-link">Skip to content</a>
         <ToastProvider>{children}</ToastProvider>
       </body>
