@@ -5,11 +5,12 @@ const nextConfig = {
     "@solana/web3.js",
     "@solana/spl-token",
     "ioredis",
+    "better-sqlite3",
+    "drizzle-orm",
   ],
   poweredByHeader: false,
   async rewrites() {
     return [
-      // API versioning: /api/v1/* maps to /api/* routes
       { source: "/api/v1/:path*", destination: "/api/:path*" },
     ];
   },
