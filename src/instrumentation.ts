@@ -19,8 +19,7 @@ export async function onShutdown() {
   try {
     const { sql } = await import("@/lib/db/client");
     if (sql) await sql.end({ timeout: 5 });
-    const { redis } = await import("@/lib/db/redis");
-    if (redis) redis.disconnect();
+    // @upstash/redis is stateless (HTTP REST); no disconnect needed
   } catch {
     /* shutdown cleanup is best-effort */
   }
