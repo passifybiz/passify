@@ -1,8 +1,5 @@
 import { NextResponse } from "next/server";
 
-let Sentry: { captureException?: (e: unknown) => void } | null = null;
-try { Sentry = require("@sentry/nextjs"); } catch { /* optional */ }
-
 export class AppError extends Error {
   constructor(
     public statusCode: number,
@@ -66,6 +63,5 @@ export function handleApiError(e: unknown, fallbackMessage = "Internal server er
   }
 
   logger.error("unhandled_error", { error: String(e), stack: e instanceof Error ? e.stack : undefined });
-  Sentry?.captureException?.(e);
   return NextResponse.json({ error: "server_error", detail: fallbackMessage, request_id: requestId }, { status: 500 });
 }

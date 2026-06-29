@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "@electric-sql/pglite": "^0.5.3",
-    "@sentry/nextjs": "^8.55.2",
     "@solana/spl-token": "^0.4.9",
     "@solana/web3.js": "^1.95.4",
     "bcryptjs": "^2.4.3",
