@@ -16,7 +16,7 @@ export default function EnterprisePage() {
   return (
     <div className="page">
       <div className="container" style={{ paddingTop: "80px", maxWidth: "800px" }}>
-        <Link href="/" className="wordmark" style={{ fontSize: "16px", display: "inline-block", marginBottom: "32px" }}>passify</Link>
+        <Link href="/" className="wordmark" style={{ fontSize: "16px", display: "inline-block", marginBottom: "32px" }}>Passify</Link>
 
         <div style={{ textAlign: "center", marginBottom: "48px" }}>
           <h1 className="h2" style={{ marginBottom: "12px" }}>Passify for Enterprise</h1>

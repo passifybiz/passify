@@ -7,7 +7,7 @@ export default function PrivacyPage() {
   return (
     <div className="page">
       <div className="container container--narrow" style={{ paddingTop: "80px" }}>
-        <Link href="/" className="wordmark" style={{ fontSize: "16px", display: "inline-block", marginBottom: "32px" }}>passify</Link>
+        <Link href="/" className="wordmark" style={{ fontSize: "16px", display: "inline-block", marginBottom: "32px" }}>Passify</Link>
         <h1 className="h2 mb-6">Privacy Policy</h1>
         <div className="stack" style={{ fontSize: "14px", lineHeight: "1.8" }}>
           <p className="help-text"><strong>Effective Date:</strong> June 25, 2026</p>

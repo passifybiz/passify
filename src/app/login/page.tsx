@@ -51,7 +51,7 @@ export default function LoginPage() {
     <div className="page">
       <div className="container--x-narrow" style={{ margin: "0 auto", paddingTop: "120px" }}>
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
-          <div className="wordmark" style={{ fontSize: "28px", marginBottom: "8px" }}>passify</div>
+          <div className="wordmark" style={{ fontSize: "28px", marginBottom: "8px" }}>Passify</div>
           <p className="help-text">Identity verification for tokenized assets.</p>
         </div>
 

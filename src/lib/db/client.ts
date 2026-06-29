@@ -23,7 +23,7 @@ function initPostgres() {
     connect_timeout: 15,
     max_lifetime: 60 * 30,
     connection: {
-      application_name: "passify",
+      application_name: "Passify",
     },
   });
   db = drizzlePg(sql, { schema: schemaPg }) as unknown as SqliteDb;

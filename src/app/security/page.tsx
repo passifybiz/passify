@@ -7,7 +7,7 @@ export default function SecurityPage() {
   return (
     <div className="page">
       <div className="container" style={{ paddingTop: "80px", maxWidth: "800px" }}>
-        <Link href="/" className="wordmark" style={{ fontSize: "16px", display: "inline-block", marginBottom: "32px" }}>passify</Link>
+        <Link href="/" className="wordmark" style={{ fontSize: "16px", display: "inline-block", marginBottom: "32px" }}>Passify</Link>
         <h1 className="h2 mb-4">Security & Architecture</h1>
         <p className="help-text mb-6">How Passify handles data and what security controls are implemented.</p>
 

@@ -40,6 +40,7 @@ export function Pricing() {
         <div className="grid-3">
           {PLANS.map((p) => (
             <div key={p.name} className={`card card--pad landing-price${p.featured ? " landing-price--featured" : ""}`}>
+              {p.featured && <span className="landing-price__badge">Most popular</span>}
               <h3 className="h4">{p.name}</h3>
               <div className="landing-price__amount">
                 {p.price}<span style={{ fontSize: "14px", fontWeight: 400, color: "var(--text-muted)" }}>{p.period}</span>

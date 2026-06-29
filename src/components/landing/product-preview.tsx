@@ -20,7 +20,7 @@ export function ProductPreview() {
           </div>
           <div className="product-mockup__body">
             <div className="pm-header">
-              <span className="pm-logo">passify</span>
+              <span className="pm-logo">Passify</span>
               <div className="pm-nav">
                 {TABS.map((t) => (
                   <button key={t} className={`pm-nav__item${t === tab ? " pm-nav__item--active" : ""}`} onClick={() => setTab(t)} style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "inherit" }}>

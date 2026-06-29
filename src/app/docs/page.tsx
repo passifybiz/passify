@@ -16,7 +16,7 @@ export default function DocsPage() {
   return (
     <div className="page">
       <div className="container" style={{ paddingTop: "80px", maxWidth: "800px" }}>
-        <Link href="/" className="wordmark" style={{ fontSize: "16px", display: "inline-block", marginBottom: "32px" }}>passify</Link>
+        <Link href="/" className="wordmark" style={{ fontSize: "16px", display: "inline-block", marginBottom: "32px" }}>Passify</Link>
         <h1 className="h2 mb-4">API Documentation</h1>
         <p className="help-text mb-6">Base URL: <code className="mono">https://passify.biz/api/v1</code></p>
 

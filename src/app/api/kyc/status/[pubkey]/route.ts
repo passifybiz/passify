@@ -44,7 +44,7 @@ export async function GET(
       schema: att.schemaId,
       expires_at: String(att.expiresAt),
       onchain_tx: att.onchainTx,
-      issued_by_platform: "passify",
+      issued_by_platform: "Passify",
     };
 
     await cache.set(cacheKey, JSON.stringify(response), 60);

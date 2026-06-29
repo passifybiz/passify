@@ -1,3 +1,5 @@
+import { TerminalBoot } from "./terminal-boot";
+
 export function CodeExample() {
   return (
     <section className="landing-section landing-section--alt">
@@ -6,6 +8,9 @@ export function CodeExample() {
         <p className="landing-section__sub">
           A single API call to verify. A single call to check. That&apos;s it.
         </p>
+        <div style={{ marginBottom: "48px" }}>
+          <TerminalBoot />
+        </div>
         <div className="grid-3" style={{ alignItems: "start" }}>
           <div className="card card--pad" style={{ gridColumn: "span 2" }}>
             <p className="mono text-muted" style={{ fontSize: "11px", marginBottom: "12px" }}>Start a KYC session</p>

@@ -43,3 +43,6 @@ credo-dev.db-wal
 .DS_Store
 nul
 prd_trd_all.txt
+
+.vercel
+.env*

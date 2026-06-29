@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Hero } from "@/components/landing/hero";
-import { TerminalBoot } from "@/components/landing/terminal-boot";
 import { Problem } from "@/components/landing/problem";
 import { Solution } from "@/components/landing/solution";
 import { ApiFlow } from "@/components/landing/api-flow";
@@ -30,7 +29,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <header className="header">
         <div className="header__inner">
-          <Link href="/" className="wordmark">passify</Link>
+          <Link href="/" className="wordmark">Passify</Link>
           <nav className="desktop-nav row" aria-label="Main navigation">
             <a href="#problem" className="btn btn--link btn--sm">Problem</a>
             <a href="#solution" className="btn btn--link btn--sm">Solution</a>
@@ -45,11 +44,6 @@ export default function Home() {
 
       <main id="main-content">
         <Hero />
-        <section className="landing-section" style={{ paddingTop: "0" }}>
-          <div className="container">
-            <TerminalBoot />
-          </div>
-        </section>
         <Trust />
         <ProductPreview />
         <Problem />
@@ -65,7 +59,7 @@ export default function Home() {
       <footer className="landing-footer">
         <div className="container">
           <div className="landing-footer__top">
-            <Link href="/" className="wordmark" style={{ fontSize: "16px" }}>passify</Link>
+            <Link href="/" className="wordmark" style={{ fontSize: "16px" }}>Passify</Link>
             <p className="text-muted text-sm">One KYC. Every tokenized asset.</p>
           </div>
           <div className="landing-footer__bottom">

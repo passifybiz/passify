@@ -15,7 +15,7 @@ interface Props {
 }
 
 const DEFAULT_LINES: BootLine[] = [
-  { text: "passify init — verifying platform integrity...", type: "muted" },
+  { text: "Passify init — verifying platform integrity...", type: "muted" },
   { text: "✓ identity schema loaded (kyc_individual_v1)", type: "success" },
   { text: "Connecting to Solana mainnet-beta...", type: "muted" },
   { text: "✓ RPC connected — slot 284,091,337", type: "success" },
@@ -44,7 +44,7 @@ function reducer(state: State, action: Action): State {
 }
 
 export function TerminalBoot({
-  heading = "passify v1.0.0",
+  heading = "Passify v1.0.0",
   lines = DEFAULT_LINES,
   charSpeed = 28,
   linePause = 350,

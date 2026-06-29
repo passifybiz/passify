@@ -30,7 +30,7 @@ export async function getTokenBalance(
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           jsonrpc: "2.0",
-          id: "passify",
+          id: "Passify",
           method: "getAsset",
           params: { id: mintAddress },
         }),

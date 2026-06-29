@@ -16,7 +16,7 @@ export default async function Image() {
                 <path d="M4 10.5L8.5 15L16 6" stroke="#1a5632" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
-            <span style={{ fontSize: "48px", fontWeight: 700, color: "white", letterSpacing: "-0.02em" }}>passify</span>
+            <span style={{ fontSize: "48px", fontWeight: 700, color: "white", letterSpacing: "-0.02em" }}>Passify</span>
           </div>
           <div style={{ fontSize: "28px", color: "rgba(255,255,255,0.9)", fontWeight: 600, textAlign: "center", lineHeight: 1.3 }}>
             Identity verification and compliance rules for Solana RWA.

@@ -31,7 +31,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
     <div className="page">
       <header className="header">
         <div className="header__inner">
-          <Link href="/dashboard" className="wordmark">passify</Link>
+          <Link href="/dashboard" className="wordmark">Passify</Link>
           <div className="row" style={{ gap: "16px" }}>
             <nav className="row" style={{ gap: "4px" }}>
               {navItems.map((item) => {
