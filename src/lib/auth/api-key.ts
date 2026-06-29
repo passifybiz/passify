@@ -60,7 +60,7 @@ export async function authenticateApiKey(req: Request): Promise<AuthenticatedApi
     .set({ lastUsedAt: new Date().toISOString() })
     .where(eq(apiKeys.id, key.id))
     .execute()
-    .catch((err) => console.error("[api-key] failed to update lastUsedAt", err));
+    .catch((err: unknown) => console.error("[api-key] failed to update lastUsedAt", err));
 
   return {
     id: key.id,

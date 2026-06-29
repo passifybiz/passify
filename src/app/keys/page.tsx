@@ -10,7 +10,7 @@ export default async function KeysPage() {
   await requireUser();
 
   const rawKeys = await db.select().from(apiKeys).orderBy(sql`${apiKeys.createdAt} desc`);
-  const keys: KeyRow[] = rawKeys.map((k) => ({
+  const keys: KeyRow[] = rawKeys.map((k: Record<string, unknown>) => ({
     ...k,
     allowedMints: parseJson<string[]>(k.allowedMints) ?? [],
   }));

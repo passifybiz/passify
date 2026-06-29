@@ -18,13 +18,12 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
       db.select({ count: sql<number>`count(*)` }).from(apiKeys),
       db.select({ count: sql<number>`count(*)` }).from(attestationReads),
     ]),
-    // Single sorted query from audit_log (most reliable activity source) with DB-level pagination
     db.select({ ts: auditLog.createdAt, action: auditLog.action, entityType: auditLog.entityType, entityId: auditLog.entityId })
       .from(auditLog)
       .orderBy(sql`${auditLog.createdAt} desc`)
       .limit(PAGE_SIZE + 1)
       .offset(offset),
-  ]);
+  ]) as [{ count: number }[][], { ts: string; action: string; entityType: string; entityId: string }[]];
 
   const totalAttestations = Number(statsResult[0][0]?.count ?? 0);
   const activeKeys = Number(statsResult[1][0]?.count ?? 0);
