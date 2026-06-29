@@ -7,7 +7,6 @@ const nextConfig = {
     "ioredis",
   ],
   poweredByHeader: false,
-  output: "standalone",
   async rewrites() {
     return [
       // API versioning: /api/v1/* maps to /api/* routes
