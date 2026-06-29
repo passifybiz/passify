@@ -1,0 +1,5 @@
+{
+  "name": "passify",
+  "regions": ["iad1"],
+  "public": true
+}
