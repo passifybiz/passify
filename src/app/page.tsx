@@ -1,0 +1,85 @@
+import Link from "next/link";
+import { Hero } from "@/components/landing/hero";
+import { TerminalBoot } from "@/components/landing/terminal-boot";
+import { Problem } from "@/components/landing/problem";
+import { Solution } from "@/components/landing/solution";
+import { ApiFlow } from "@/components/landing/api-flow";
+import { ProductPreview } from "@/components/landing/product-preview";
+import { CodeExample } from "@/components/landing/code-example";
+import { Trust } from "@/components/landing/trust";
+import { UseCases } from "@/components/landing/use-cases";
+import { Pricing } from "@/components/landing/pricing";
+import { Faq } from "@/components/landing/faq";
+import { Cta } from "@/components/landing/cta";
+import { MobileNav } from "@/components/landing/mobile-nav";
+import { AuthButton } from "@/components/landing/auth-buttons";
+
+export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Passify",
+    url: "https://passify.biz",
+    applicationCategory: "FinanceApplication",
+    description: "API-first identity and compliance layer for Solana RWA platforms. One KYC, every tokenized asset.",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  };
+
+  return (
+    <div className="page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <header className="header">
+        <div className="header__inner">
+          <Link href="/" className="wordmark">passify</Link>
+          <nav className="desktop-nav row" aria-label="Main navigation">
+            <a href="#problem" className="btn btn--link btn--sm">Problem</a>
+            <a href="#solution" className="btn btn--link btn--sm">Solution</a>
+            <a href="#how-it-works" className="btn btn--link btn--sm">How it works</a>
+            <a href="#use-cases" className="btn btn--link btn--sm">Use cases</a>
+            <a href="#pricing" className="btn btn--link btn--sm">Pricing</a>
+            <AuthButton />
+          </nav>
+          <MobileNav />
+        </div>
+      </header>
+
+      <main id="main-content">
+        <Hero />
+        <section className="landing-section" style={{ paddingTop: "0" }}>
+          <div className="container">
+            <TerminalBoot />
+          </div>
+        </section>
+        <Trust />
+        <ProductPreview />
+        <Problem />
+        <Solution />
+        <ApiFlow />
+        <CodeExample />
+        <UseCases />
+        <Pricing />
+        <Faq />
+        <Cta />
+      </main>
+
+      <footer className="landing-footer">
+        <div className="container">
+          <div className="landing-footer__top">
+            <Link href="/" className="wordmark" style={{ fontSize: "16px" }}>passify</Link>
+            <p className="text-muted text-sm">One KYC. Every tokenized asset.</p>
+          </div>
+          <div className="landing-footer__bottom">
+            <p className="text-muted text-xs">&copy; {new Date().getFullYear()} Passify. Solana RWA compliance infrastructure.</p>
+            <div className="row" style={{ gap: "16px" }}>
+              <Link href="/docs" className="text-muted text-xs" style={{ textDecoration: "none" }}>API Docs</Link>
+              <Link href="/security" className="text-muted text-xs" style={{ textDecoration: "none" }}>Security</Link>
+              <Link href="/terms" className="text-muted text-xs" style={{ textDecoration: "none" }}>Terms</Link>
+              <Link href="/privacy" className="text-muted text-xs" style={{ textDecoration: "none" }}>Privacy</Link>
+              <a href="mailto:sales@passify.biz" className="text-muted text-xs" style={{ textDecoration: "none" }}>Contact</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}

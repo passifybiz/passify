@@ -1,0 +1,9 @@
+{
+  "name": "Passify",
+  "short_name": "Passify",
+  "description": "Identity Proven. Assets Unlocked.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafaf8",
+  "theme_color": "#1a5632"
+}

@@ -1,0 +1,45 @@
+# deps
+node_modules
+/.pnp
+.pnp.js
+
+# next
+/.next/
+/out/
+next-env.d.ts
+
+# build
+*.tsbuildinfo
+
+# env / secrets — never commit
+.env
+.env.local
+.env.production
+.env.*.local
+!.env.example
+
+# os
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# drizzle
+/drizzle/migrations/meta/
+
+# dev db
+passify-dev.db
+passify-dev.db-shm
+passify-dev.db-wal
+credo-dev.db
+credo-dev.db-shm
+credo-dev.db-wal
+
+# misc
+*.log
+.DS_Store
+nul
+prd_trd_all.txt

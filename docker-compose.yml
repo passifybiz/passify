@@ -1,0 +1,38 @@
+# Passify local infra: Postgres + Redis.
+# Mirrors the TRD's data layer. Run with:  docker compose up -d
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: passify-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: passify
+      POSTGRES_PASSWORD: passify
+      POSTGRES_DB: passify
+    ports:
+      - "5432:5432"
+    volumes:
+      - passify-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U passify -d passify"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: passify-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - passify-redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  passify-postgres-data:
+  passify-redis-data:
