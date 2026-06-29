@@ -1,11 +1,12 @@
 import { drizzle as drizzlePg } from "drizzle-orm/postgres-js";
+import type { PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import * as schemaPg from "../../../drizzle/schema";
 import * as schemaSqlite from "../../../drizzle/schema-sqlite";
 
 declare const __non_webpack_require__: (path: string) => unknown;
 
-type SqliteDb = { _: never };
+type SqliteDb = PostgresJsDatabase<typeof schemaSqlite>;
 
 const DB_TYPE = process.env.DATABASE_URL ? "postgres" : "sqlite";
 
