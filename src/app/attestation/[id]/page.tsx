@@ -2,11 +2,13 @@ import { notFound } from "next/navigation";
 import { requireUser } from "@/lib/auth/session";
 import { db } from "@/lib/db/client";
 import { attestations, attestationReads, apiKeys } from "@/lib/db/schema";
-import { eq, and, sql } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { formatDateTime, truncateMiddle, solscanAccount, solscanTx } from "@/lib/format";
 import { schemaLabel } from "@/lib/schemas/registry";
 import { CopyButton } from "@/components/design-system/copy";
 import Link from "next/link";
+
+type ReadRow = { platformName: string; readAt: string };
 
 export default async function AttestationDetailPage({ params }: { params: Promise<{ id: string }> }) {
   await requireUser();
@@ -17,7 +19,7 @@ export default async function AttestationDetailPage({ params }: { params: Promis
   });
   if (!att) notFound();
 
-  const reads = await db
+  const reads: ReadRow[] = await db
     .select({
       platformName: apiKeys.platformName,
       readAt: attestationReads.readAt,
@@ -93,7 +95,7 @@ export default async function AttestationDetailPage({ params }: { params: Promis
           <p className="text-muted text-sm">No platforms have read this attestation yet.</p>
         ) : (
           <div className="card card--pad">
-            {reads.map((r: { platformName: string; readAt: string }, i) => (
+            {reads.map((r, i) => (
               <div key={i} className="reuse-item">
                 {r.platformName} — {formatDateTime(r.readAt)}
               </div>
