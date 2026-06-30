@@ -51,13 +51,13 @@ export default function Home() {
 
       <main id="main-content">
         <Hero />
-        <Trust />
-        <ProductPreview />
         <Problem />
         <Solution />
         <ApiFlow />
         <CodeExample />
+        <ProductPreview />
         <UseCases />
+        <Trust />
         <Pricing />
         <TokenSection />
         <Faq />

@@ -10,7 +10,7 @@ export function Solution() {
   return (
     <section id="solution" className="landing-section">
       <div className="container">
-        <h2 className="h2 landing-section__heading">What Passify replaces</h2>
+        <h2 className="h2 landing-section__heading">How Passify solves it</h2>
         <p className="landing-section__sub">
           One integration instead of building KYC, compliance, and attestation infrastructure yourself.
         </p>
