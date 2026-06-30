@@ -20,8 +20,6 @@ export function MobileNav() {
       </button>
       {open && (
         <nav className="mobile-nav" onClick={() => setOpen(false)}>
-          <a href="#problem" className="mobile-nav__link">Problem</a>
-          <a href="#solution" className="mobile-nav__link">Solution</a>
           <a href="#how-it-works" className="mobile-nav__link">How it works</a>
           <a href="#use-cases" className="mobile-nav__link">Use cases</a>
           <a href="#pricing" className="mobile-nav__link">Pricing</a>

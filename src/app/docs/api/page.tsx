@@ -67,7 +67,7 @@ export default function ApiOverviewPage() {
         </thead>
         <tbody>
           <tr><td>Free</td><td>500</td></tr>
-          <tr><td>Pro</td><td>10,000</td></tr>
+          <tr><td>Growth</td><td>10,000</td></tr>
           <tr><td>Enterprise</td><td>Custom</td></tr>
         </tbody>
       </table>

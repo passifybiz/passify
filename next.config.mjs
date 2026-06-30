@@ -9,6 +9,14 @@ const nextConfig = {
     "drizzle-orm",
   ],
   poweredByHeader: false,
+  async redirects() {
+    return [
+      // The API base URLs are not browsable endpoints. Anyone landing here
+      // (or following an old link) should reach the API reference, not a 404.
+      { source: "/api", destination: "/docs/api", permanent: false },
+      { source: "/api/v1", destination: "/docs/api", permanent: false },
+    ];
+  },
   async rewrites() {
     return [
       { source: "/api/v1/:path*", destination: "/api/:path*" },

@@ -11,8 +11,6 @@ export const GITHUB_URL = "https://github.com/passifybiz";
 export const X_URL = "https://x.com/passify";
 export const X_IS_PLACEHOLDER = true;
 
-export const STATUS_URL = "https://status.passify.biz";
-
 export const EMAIL = {
   sales: "sales@passify.biz",
   support: "support@passify.biz",

@@ -2190,31 +2190,17 @@ pre.mono {
   border-color: var(--primary-300);
 }
 
-/* newsletter */
-.footer-news {
-  margin-top: var(--space-6);
-  max-width: 340px;
-}
-.footer-news__label {
-  display: block;
-  font-size: 12px;
+/* footer follow link */
+.site-footer__follow {
+  display: inline-block;
+  margin-top: var(--space-5);
+  font-size: 13px;
   font-weight: 600;
-  color: var(--text);
-  margin-bottom: var(--space-2);
+  color: var(--primary);
+  text-decoration: none;
 }
-.footer-news__row {
-  display: flex;
-  gap: var(--space-2);
-}
-.footer-news__input {
-  height: 36px;
-  font-size: 13px;
-}
-.footer-news__done {
-  margin-top: var(--space-6);
-  font-size: 13px;
-  color: var(--success);
-  max-width: 340px;
+.site-footer__follow:hover {
+  text-decoration: underline;
 }
 
 /* ════════════════════════════════════════════════════════════

@@ -33,8 +33,6 @@ export default function Home() {
         <div className="header__inner">
           <Link href="/" className="wordmark">Passify</Link>
           <nav className="desktop-nav row" aria-label="Main navigation">
-            <a href="#problem" className="btn btn--link btn--sm">Problem</a>
-            <a href="#solution" className="btn btn--link btn--sm">Solution</a>
             <a href="#how-it-works" className="btn btn--link btn--sm">How it works</a>
             <a href="#use-cases" className="btn btn--link btn--sm">Use cases</a>
             <a href="#pricing" className="btn btn--link btn--sm">Pricing</a>
