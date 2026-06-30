@@ -17,6 +17,8 @@ next-env.d.ts
 .env.production
 .env.*.local
 !.env.example
+.cron-secret.local.txt
+*.local.txt
 
 # os
 .DS_Store
