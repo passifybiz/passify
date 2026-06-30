@@ -1,0 +1,24 @@
+{
+  "name": "@passify/sdk",
+  "version": "0.1.0",
+  "description": "Official TypeScript SDK for the Passify identity & compliance API (Solana RWA).",
+  "type": "module",
+  "license": "UNLICENSED",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "keywords": ["passify", "solana", "rwa", "kyc", "compliance", "attestation"],
+  "engines": { "node": ">=18" },
+  "publishConfig": { "access": "restricted" }
+}
