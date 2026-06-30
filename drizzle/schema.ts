@@ -197,6 +197,46 @@ export const attestationReads = pgTable(
   }),
 );
 
+// ── Outbound webhooks ─────────────────────────────────────
+// Endpoints subscribers register; events Passify emits; per-endpoint deliveries
+// with attempt tracking for inline + scheduled retries.
+export const webhookEndpoints = pgTable("webhook_endpoints", {
+  id: genUuid,
+  url: text("url").notNull(),
+  secret: varchar("secret", { length: 80 }).notNull(), // signing secret (whsec_...)
+  description: varchar("description", { length: 255 }),
+  events: jsonb("events").notNull().default([]), // subscribed event types ("*" = all)
+  isActive: boolean("is_active").notNull().default(true),
+  createdAt: timestamp("created_at", { mode: "date", withTimezone: true }).notNull().defaultNow(),
+});
+
+export const webhookEvents = pgTable("webhook_events", {
+  id: varchar("id", { length: 64 }).primaryKey(), // "evt_..."
+  type: varchar("type", { length: 100 }).notNull(),
+  payload: jsonb("payload").notNull(),
+  createdAt: timestamp("created_at", { mode: "date", withTimezone: true }).notNull().defaultNow(),
+});
+
+export const webhookDeliveries = pgTable(
+  "webhook_deliveries",
+  {
+    id: genUuid,
+    eventId: varchar("event_id", { length: 64 }).notNull().references(() => webhookEvents.id),
+    endpointId: uuid("endpoint_id").notNull().references(() => webhookEndpoints.id),
+    status: varchar("status", { length: 20 }).notNull().default("pending"), // pending|success|failed
+    attempts: integer("attempts").notNull().default(0),
+    responseStatus: integer("response_status"),
+    error: text("error"),
+    nextRetryAt: timestamp("next_retry_at", { mode: "date", withTimezone: true }),
+    lastAttemptAt: timestamp("last_attempt_at", { mode: "date", withTimezone: true }),
+    createdAt: timestamp("created_at", { mode: "date", withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => ({
+    statusIdx: uniqueIndex("idx_webhook_deliveries_status_retry").on(t.status, t.nextRetryAt, t.id),
+    eventEndpointIdx: uniqueIndex("idx_webhook_deliveries_event_endpoint").on(t.eventId, t.endpointId),
+  }),
+);
+
 // Convenience re-export of tables commonly iterated by seed/migrate.
 export const allTables = [
   accounts,
@@ -209,6 +249,9 @@ export const allTables = [
   apiKeys,
   usageResets,
   attestationReads,
+  webhookEndpoints,
+  webhookEvents,
+  webhookDeliveries,
 ];
 
 // kept import to avoid tree-shaking warning when generator only needs a subset

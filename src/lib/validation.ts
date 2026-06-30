@@ -43,6 +43,27 @@ export const tokenTransferSchema = z.object({
   amount: z.union([z.string(), z.number()]).refine((v) => Number(v) > 0, "Amount must be positive"),
 });
 
+export const createWebhookSchema = z.object({
+  url: z.string().url().max(2048),
+  description: z.string().max(255).optional(),
+  events: z.array(z.string()).min(1, "Subscribe to at least one event"),
+});
+
+export const patchWebhookSchema = z.object({
+  id: z.string().uuid(),
+  isActive: z.boolean().optional(),
+  events: z.array(z.string()).min(1).optional(),
+  rotateSecret: z.boolean().optional(),
+});
+
+export const deleteWebhookSchema = z.object({
+  id: z.string().uuid(),
+});
+
+export const replayWebhookSchema = z.object({
+  deliveryId: z.string().uuid(),
+});
+
 export const updateRulesSchema = z.object({
   requiredSchema: z.enum(SCHEMA_IDS as [string, ...string[]]).optional(),
   allowedJurisdictions: z.array(z.string().length(2)).optional(),

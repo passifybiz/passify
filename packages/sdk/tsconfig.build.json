@@ -11,6 +11,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/index.ts", "src/client.ts", "src/errors.ts", "src/types.ts"],
+  "include": ["src/index.ts", "src/client.ts", "src/errors.ts", "src/types.ts", "src/webhooks.ts"],
   "exclude": ["src/**/*.test.ts"]
 }

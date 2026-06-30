@@ -84,6 +84,13 @@ export async function PATCH(
       });
     }
 
+    const { dispatchWebhookEvent } = await import("@/lib/webhooks/dispatch");
+    await dispatchWebhookEvent("rule.updated", {
+      mint_config: slug,
+      updated_by: session.email,
+      changes: data,
+    });
+
     return NextResponse.json({ ok: true });
   } catch (e) {
     return handleApiError(e);

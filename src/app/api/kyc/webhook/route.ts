@@ -62,6 +62,12 @@ export async function POST(req: NextRequest) {
       await db.update(kycSessions)
         .set({ status: payload.status, completedAt: new Date().toISOString() })
         .where(eq(kycSessions.id, session.id));
+      const { dispatchWebhookEvent } = await import("@/lib/webhooks/dispatch");
+      await dispatchWebhookEvent("kyc.status_changed", {
+        session_id: session.externalSessionId,
+        user_pubkey: session.userPubkey,
+        status: payload.status,
+      });
       return NextResponse.json({ status: payload.status });
     }
 
@@ -116,6 +122,15 @@ export async function POST(req: NextRequest) {
       entityType: "attestation",
       entityId: session.id,
       newValue: JSON.stringify({ attestationId, userPubkey: session.userPubkey }),
+    });
+
+    const { dispatchWebhookEvent } = await import("@/lib/webhooks/dispatch");
+    await dispatchWebhookEvent("attestation.issued", {
+      attestation_id: attestationId,
+      user_pubkey: session.userPubkey,
+      schema: schemaId,
+      expires_at: expiration.toISOString(),
+      onchain_tx: onchain.txSignature,
     });
 
     return NextResponse.json({ status: "approved", attestation_id: attestationId });

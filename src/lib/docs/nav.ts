@@ -43,6 +43,7 @@ export const docsNav: DocSection[] = [
       { href: "/docs/guides/verify-investor", title: "Verify an investor", summary: "Run a full KYC session and confirm the resulting attestation." },
       { href: "/docs/guides/mint-and-transfer", title: "Mint & transfer tokens", summary: "Build compliance-checked Token-2022 mint and transfer transactions." },
       { href: "/docs/guides/manage-rules", title: "Manage compliance rules", summary: "Edit transfer rules from the dashboard with a full audit trail." },
+      { href: "/docs/guides/webhooks", title: "Receive webhooks", summary: "Subscribe to events, verify signatures, and handle retries." },
     ],
   },
   {

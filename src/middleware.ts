@@ -4,7 +4,7 @@ import { getCorsOrigin } from "@/lib/cors";
 import { jwtVerify } from "jose";
 
 const isProd = process.env.NODE_ENV === "production";
-const PROTECTED_PATHS = ["/dashboard", "/kyc", "/attestation", "/rules", "/keys"];
+const PROTECTED_PATHS = ["/dashboard", "/kyc", "/attestation", "/rules", "/keys", "/webhooks"];
 
 function getSecret(): Uint8Array {
   const secret = process.env.SESSION_SECRET;

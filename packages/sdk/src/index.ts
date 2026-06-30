@@ -1,5 +1,7 @@
 export { Passify } from "./client";
 export { PassifyError } from "./errors";
+export { webhooks, verifySignature } from "./webhooks";
+export type { VerifyWebhookParams } from "./webhooks";
 export type {
   PassifyOptions,
   SchemaId,

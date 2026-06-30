@@ -168,3 +168,42 @@ export const attestationReads = sqliteTable(
     keyIdx: uniqueIndex("idx_attestation_reads_key").on(t.apiKeyId),
   }),
 );
+
+
+// ── Outbound webhooks ─────────────────────────────────────
+export const webhookEndpoints = sqliteTable("webhook_endpoints", {
+  id: genId(),
+  url: text("url").notNull(),
+  secret: text("secret").notNull(),
+  description: text("description"),
+  events: text("events").notNull().default("[]"),
+  isActive: integer("is_active", { mode: "boolean" }).notNull().default(true),
+  createdAt: text("created_at").notNull().default("(datetime('now'))"),
+});
+
+export const webhookEvents = sqliteTable("webhook_events", {
+  id: text("id").primaryKey(),
+  type: text("type").notNull(),
+  payload: text("payload").notNull(),
+  createdAt: text("created_at").notNull().default("(datetime('now'))"),
+});
+
+export const webhookDeliveries = sqliteTable(
+  "webhook_deliveries",
+  {
+    id: genId(),
+    eventId: text("event_id").notNull(),
+    endpointId: text("endpoint_id").notNull(),
+    status: text("status").notNull().default("pending"),
+    attempts: integer("attempts").notNull().default(0),
+    responseStatus: integer("response_status"),
+    error: text("error"),
+    nextRetryAt: text("next_retry_at"),
+    lastAttemptAt: text("last_attempt_at"),
+    createdAt: text("created_at").notNull().default("(datetime('now'))"),
+  },
+  (t) => ({
+    statusIdx: uniqueIndex("idx_webhook_deliveries_status_retry").on(t.status, t.nextRetryAt),
+    eventEndpointIdx: uniqueIndex("idx_webhook_deliveries_event_endpoint").on(t.eventId, t.endpointId),
+  }),
+);

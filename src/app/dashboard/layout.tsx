@@ -22,6 +22,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
     { href: "/kyc", label: "KYC" },
     { href: "/rules", label: "Rules" },
     { href: "/keys", label: "Keys" },
+    { href: "/webhooks", label: "Webhooks" },
     { href: "/dashboard/audit", label: "Audit" },
     { href: "/docs", label: "Docs" },
     { href: "/dashboard/account", label: "Account" },
