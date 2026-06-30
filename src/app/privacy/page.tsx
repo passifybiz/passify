@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { SiteFooter } from "@/components/site/footer";
 
 export const metadata: Metadata = { title: "Privacy Policy — Passify" };
 
@@ -57,6 +58,7 @@ export default function PrivacyPage() {
           <p>Data protection inquiries: <a href="mailto:privacy@passify.biz">privacy@passify.biz</a></p>
         </div>
       </div>
+      <SiteFooter />
     </div>
   );
 }

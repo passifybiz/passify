@@ -1,75 +1,112 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { DocArticle } from "@/components/docs/doc-article";
+import { Callout } from "@/components/docs/callout";
 
-export const metadata: Metadata = { title: "API Documentation — Passify" };
+export const metadata: Metadata = {
+  title: "Introduction",
+  description:
+    "What Passify is, the problems it solves, and how identity attestations and compliance rules fit together for Solana RWA platforms.",
+};
 
-const ENDPOINTS = [
-  { method: "POST", path: "/api/v1/kyc/start", auth: "API Key", desc: "Start a KYC verification session for an investor.", body: '{ "userPubkey": "7xKX...", "schemaId": "kyc_individual_v1" }', response: '{ "session_id": "bp_...", "session_url": "https://verify.blockpass.org/..." }' },
-  { method: "GET", path: "/api/v1/kyc/status/{pubkey}", auth: "API Key", desc: "Check attestation status for a public key.", body: null, response: '{ "status": "verified", "attestation_id": "att_...", "schema": "kyc_individual_v1", "expires_at": "..." }' },
-  { method: "GET", path: "/api/v1/attestation/{id}", auth: "API Key", desc: "Get full attestation details by ID.", body: null, response: '{ "attestation_id": "att_...", "schema": "...", "status": "verified", "onchain_tx": "..." }' },
-  { method: "POST", path: "/api/v1/token/mint", auth: "API Key", desc: "Build an unsigned mint transaction (requires valid attestation).", body: '{ "user_pubkey": "...", "mint_config": "us_real_estate_fund_v1", "amount": "1000" }', response: '{ "status": "success", "unsigned_transaction_base64": "..." }' },
-  { method: "POST", path: "/api/v1/token/transfer", auth: "API Key", desc: "Build an unsigned transfer transaction (requires sender attestation).", body: '{ "mint_config": "...", "sender": "...", "recipient": "...", "amount": "500" }', response: '{ "status": "success", "unsigned_transaction_base64": "..." }' },
-  { method: "GET", path: "/api/v1/health", auth: "None", desc: "Health check endpoint.", body: null, response: '{ "status": "healthy", "checks": { "database": "ok", "redis": "ok" } }' },
+const toc = [
+  { id: "what-is-passify", title: "What is Passify" },
+  { id: "who-its-for", title: "Who it is for" },
+  { id: "the-model", title: "The mental model" },
+  { id: "start-here", title: "Start here" },
 ];
 
-export default function DocsPage() {
+export default function DocsIntroPage() {
   return (
-    <div className="page">
-      <div className="container" style={{ paddingTop: "80px", maxWidth: "800px" }}>
-        <Link href="/" className="wordmark" style={{ fontSize: "16px", display: "inline-block", marginBottom: "32px" }}>Passify</Link>
-        <h1 className="h2 mb-4">API Documentation</h1>
-        <p className="help-text mb-6">Base URL: <code className="mono">https://passify.biz/api/v1</code></p>
+    <DocArticle
+      slug="/docs"
+      title="Introduction"
+      lead="Passify is an API-first identity and compliance layer for Solana real-world-asset platforms. Verify an investor once, then let that proof travel across every integrated platform — without ever putting personal data on-chain."
+      toc={toc}
+    >
+      <h2 id="what-is-passify">What is Passify</h2>
+      <p>
+        Tokenizing real-world assets on Solana means meeting real-world compliance rules: know-your-customer
+        (KYC) checks, jurisdiction limits, accreditation requirements, and holding periods. Building that logic
+        from scratch is slow, and getting it wrong is expensive.
+      </p>
+      <p>Passify removes three connected frictions that every RWA team runs into:</p>
+      <ul>
+        <li>
+          <strong>KYC is repeated per platform.</strong> An investor verifies on one platform, then has to
+          start over on the next. Passify makes verification portable.
+        </li>
+        <li>
+          <strong>On-chain KYC is a liability.</strong> Storing names, dates of birth, or document scans on a
+          public ledger is illegal in most jurisdictions. Passify writes only a hash and metadata — never
+          personal data.
+        </li>
+        <li>
+          <strong>Compliance logic is hardcoded.</strong> When rules live inside a smart contract, changing one
+          means redeploying. Passify keeps rules in a database and checks them at transaction time.
+        </li>
+      </ul>
 
-        <div className="card card--pad mb-6">
-          <h2 className="h4 mb-2">Authentication</h2>
-          <p style={{ fontSize: "14px", lineHeight: 1.7 }}>
-            All API endpoints (except health) require a Bearer token:
-          </p>
-          <pre className="mono" style={{ background: "var(--surface)", padding: "12px", borderRadius: "4px", fontSize: "13px", marginTop: "8px", overflowX: "auto" }}>
-{`Authorization: Bearer passify_live_abc123...`}
-          </pre>
-          <p className="help-text mt-3">API keys are created from the dashboard under Keys. The full key is shown once at creation.</p>
-        </div>
+      <h2 id="who-its-for">Who it is for</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Audience</th>
+            <th>What Passify gives them</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>RWA platform developers</td>
+            <td>A drop-in REST API to add KYC and compliance without writing or deploying a custom program.</td>
+          </tr>
+          <tr>
+            <td>Issuers</td>
+            <td>Configurable investor rules — jurisdiction, accreditation, minimum investment, holder caps.</td>
+          </tr>
+          <tr>
+            <td>Investors</td>
+            <td>Verify once, then access multiple platforms with the same portable attestation.</td>
+          </tr>
+          <tr>
+            <td>Compliance officers</td>
+            <td>A dashboard to view attestation status and a full audit trail of every rule change.</td>
+          </tr>
+        </tbody>
+      </table>
 
-        <div className="card card--pad mb-6">
-          <h2 className="h4 mb-2">Error Format</h2>
-          <pre className="mono" style={{ background: "var(--surface)", padding: "12px", borderRadius: "4px", fontSize: "13px", overflowX: "auto" }}>
-{`{ "error": "error_code", "detail": "Human description.", "request_id": "a1b2c3d4" }`}
-          </pre>
-          <p className="help-text mt-3">Include the <code className="mono">request_id</code> when contacting support.</p>
-        </div>
+      <h2 id="the-model">The mental model</h2>
+      <p>Three primitives carry the entire system. Learn these and the rest of the docs follow naturally.</p>
+      <ul>
+        <li>
+          <strong><Link href="/docs/concepts/attestations">Attestations</Link></strong> — a portable, on-chain
+          proof that a wallet passed verification. Contains a hash and metadata, never PII.
+        </li>
+        <li>
+          <strong><Link href="/docs/concepts/schemas">Schemas</Link></strong> — the type of an attestation
+          (for example <code>kyc_individual_v1</code> or <code>kyc_accredited_v1</code>), describing what was
+          verified.
+        </li>
+        <li>
+          <strong><Link href="/docs/concepts/compliance-rules">Compliance rules</Link></strong> — mutable,
+          per-asset transfer logic enforced at mint and transfer time, editable without a redeploy.
+        </li>
+      </ul>
 
-        <h2 className="h3 mb-4">Endpoints</h2>
+      <Callout tone="security">
+        Passify never stores, processes, or transmits personal identity data. Your KYC provider handles
+        identity; Passify records only the cryptographic proof that verification happened. See{" "}
+        <Link href="/docs/security">Security</Link> for the full data architecture.
+      </Callout>
 
-        {ENDPOINTS.map((ep) => (
-          <div key={ep.path} className="card card--pad mb-4">
-            <div className="row" style={{ gap: "8px", marginBottom: "8px" }}>
-              <span className="mono" style={{ fontSize: "12px", fontWeight: 700, color: ep.method === "GET" ? "var(--primary)" : "var(--warning)", background: "var(--surface)", padding: "2px 6px", borderRadius: "3px" }}>{ep.method}</span>
-              <code className="mono" style={{ fontSize: "13px" }}>{ep.path}</code>
-            </div>
-            <p style={{ fontSize: "14px", marginBottom: "8px" }}>{ep.desc}</p>
-            <p className="text-muted text-xs" style={{ marginBottom: "8px" }}>Auth: {ep.auth}</p>
-            {ep.body && (
-              <>
-                <p className="text-xs text-muted" style={{ marginBottom: "4px" }}>Request body:</p>
-                <pre className="mono" style={{ background: "var(--surface)", padding: "8px", borderRadius: "4px", fontSize: "12px", overflowX: "auto", marginBottom: "8px" }}>{ep.body}</pre>
-              </>
-            )}
-            <p className="text-xs text-muted" style={{ marginBottom: "4px" }}>Response:</p>
-            <pre className="mono" style={{ background: "var(--surface)", padding: "8px", borderRadius: "4px", fontSize: "12px", overflowX: "auto" }}>{ep.response}</pre>
-          </div>
-        ))}
-
-        <div className="card card--pad mt-6" style={{ background: "var(--primary-light)" }}>
-          <h3 className="h5">Rate Limits</h3>
-          <p style={{ fontSize: "14px", marginTop: "8px", lineHeight: 1.7 }}>
-            <strong>Free:</strong> 500 attestations/month<br />
-            <strong>Pro:</strong> 10,000 attestations/month<br />
-            <strong>Enterprise:</strong> Unlimited
-          </p>
-          <p className="help-text mt-2">Exceeding your quota returns HTTP 429.</p>
-        </div>
-      </div>
-    </div>
+      <h2 id="start-here">Start here</h2>
+      <p>Pick the path that matches what you are doing right now.</p>
+      <ul>
+        <li><Link href="/docs/quickstart">Quickstart</Link> — verify an investor and read an attestation in five minutes.</li>
+        <li><Link href="/docs/concepts/how-it-works">How Passify works</Link> — the end-to-end flow, start to finish.</li>
+        <li><Link href="/docs/api">API reference</Link> — every endpoint, with request and response shapes.</li>
+        <li><Link href="/docs/guides/mint-and-transfer">Mint &amp; transfer guide</Link> — build compliance-checked Token-2022 transactions.</li>
+      </ul>
+    </DocArticle>
   );
 }

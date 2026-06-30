@@ -1,13 +1,30 @@
 import type { MetadataRoute } from "next";
+import { docsFlat } from "@/lib/docs/nav";
+import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    { url: "https://passify.biz", lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
-    { url: "https://passify.biz/docs", lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
-    { url: "https://passify.biz/security", lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: "https://passify.biz/enterprise", lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: "https://passify.biz/terms", lastModified: new Date(), changeFrequency: "monthly", priority: 0.3 },
-    { url: "https://passify.biz/privacy", lastModified: new Date(), changeFrequency: "monthly", priority: 0.3 },
-    { url: "https://passify.biz/login", lastModified: new Date(), changeFrequency: "monthly", priority: 0.3 },
+  const now = new Date();
+
+  const marketing: MetadataRoute.Sitemap = [
+    { url: SITE_URL, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: `${SITE_URL}/security`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE_URL}/enterprise`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE_URL}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/login`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
   ];
+
+  // Every documentation route, derived from the single nav source of truth.
+  const docs: MetadataRoute.Sitemap = docsFlat.map((item) => {
+    const isTop = item.href === "/docs";
+    const isToken = item.href.startsWith("/docs/tokenomics");
+    return {
+      url: `${SITE_URL}${item.href}`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: isTop ? 0.9 : isToken ? 0.7 : 0.6,
+    };
+  });
+
+  return [...marketing, ...docs];
 }

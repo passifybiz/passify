@@ -1,0 +1,57 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { DocsSidebar } from "./sidebar";
+import { GITHUB_URL } from "@/lib/site";
+
+/**
+ * Sticky documentation top bar. On mobile it also hosts the slide-down
+ * navigation drawer (the sidebar tree), since the rail is hidden < 1024px.
+ */
+export function DocsNavbar() {
+  const [open, setOpen] = useState(false);
+
+  // Lock body scroll while the mobile drawer is open.
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  return (
+    <header className="docs-topbar">
+      <div className="docs-topbar__inner">
+        <div className="row" style={{ gap: "var(--space-4)" }}>
+          <button
+            type="button"
+            className="docs-topbar__menu"
+            aria-label={open ? "Close navigation" : "Open navigation"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className={`hamburger${open ? " hamburger--open" : ""}`} />
+          </button>
+          <Link href="/" className="wordmark" style={{ fontSize: "18px" }}>
+            Passify
+          </Link>
+          <span className="docs-topbar__crumb">Docs</span>
+        </div>
+
+        <nav className="docs-topbar__nav" aria-label="Site">
+          <Link href="/docs" className="docs-topbar__link">Docs</Link>
+          <Link href="/docs/tokenomics" className="docs-topbar__link">Token</Link>
+          <a href={GITHUB_URL} className="docs-topbar__link" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <Link href="/login" className="btn btn--primary btn--sm">Sign in</Link>
+        </nav>
+      </div>
+
+      {open && (
+        <div className="docs-drawer" role="dialog" aria-label="Documentation navigation">
+          <DocsSidebar onNavigate={() => setOpen(false)} />
+        </div>
+      )}
+    </header>
+  );
+}

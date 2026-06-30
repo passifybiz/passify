@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { SiteFooter } from "@/components/site/footer";
 
 export const metadata: Metadata = { title: "Terms of Service — Passify" };
 
@@ -49,6 +50,7 @@ export default function TermsPage() {
           <p>Questions about these terms: <a href="mailto:legal@passify.biz">legal@passify.biz</a></p>
         </div>
       </div>
+      <SiteFooter />
     </div>
   );
 }

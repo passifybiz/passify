@@ -10,8 +10,10 @@ import { UseCases } from "@/components/landing/use-cases";
 import { Pricing } from "@/components/landing/pricing";
 import { Faq } from "@/components/landing/faq";
 import { Cta } from "@/components/landing/cta";
+import { TokenSection } from "@/components/landing/token";
 import { MobileNav } from "@/components/landing/mobile-nav";
 import { AuthButton } from "@/components/landing/auth-buttons";
+import { SiteFooter } from "@/components/site/footer";
 
 export default function Home() {
   const jsonLd = {
@@ -36,6 +38,8 @@ export default function Home() {
             <a href="#how-it-works" className="btn btn--link btn--sm">How it works</a>
             <a href="#use-cases" className="btn btn--link btn--sm">Use cases</a>
             <a href="#pricing" className="btn btn--link btn--sm">Pricing</a>
+            <Link href="/docs/tokenomics" className="btn btn--link btn--sm">Token</Link>
+            <Link href="/docs" className="btn btn--link btn--sm">Docs</Link>
             <AuthButton />
           </nav>
           <MobileNav />
@@ -52,28 +56,12 @@ export default function Home() {
         <CodeExample />
         <UseCases />
         <Pricing />
+        <TokenSection />
         <Faq />
         <Cta />
       </main>
 
-      <footer className="landing-footer">
-        <div className="container">
-          <div className="landing-footer__top">
-            <Link href="/" className="wordmark" style={{ fontSize: "16px" }}>Passify</Link>
-            <p className="text-muted text-sm">One KYC. Every tokenized asset.</p>
-          </div>
-          <div className="landing-footer__bottom">
-            <p className="text-muted text-xs">&copy; {new Date().getFullYear()} Passify. Solana RWA compliance infrastructure.</p>
-            <div className="row" style={{ gap: "16px" }}>
-              <Link href="/docs" className="text-muted text-xs" style={{ textDecoration: "none" }}>API Docs</Link>
-              <Link href="/security" className="text-muted text-xs" style={{ textDecoration: "none" }}>Security</Link>
-              <Link href="/terms" className="text-muted text-xs" style={{ textDecoration: "none" }}>Terms</Link>
-              <Link href="/privacy" className="text-muted text-xs" style={{ textDecoration: "none" }}>Privacy</Link>
-              <a href="mailto:sales@passify.biz" className="text-muted text-xs" style={{ textDecoration: "none" }}>Contact</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { SiteFooter } from "@/components/site/footer";
 
 export const metadata: Metadata = { title: "Security — Passify" };
 
@@ -97,6 +98,7 @@ export default function SecurityPage() {
 
         </div>
       </div>
+      <SiteFooter />
     </div>
   );
 }
