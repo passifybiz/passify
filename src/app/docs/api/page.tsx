@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
 const toc = [
   { id: "base-url", title: "Base URL" },
+  { id: "openapi", title: "OpenAPI specification" },
   { id: "auth", title: "Authentication" },
   { id: "errors", title: "Errors" },
   { id: "rate-limits", title: "Rate limits" },
@@ -29,6 +30,15 @@ export default function ApiOverviewPage() {
     >
       <h2 id="base-url">Base URL</h2>
       <CodeBlock language="text" code={`https://passify.biz/api/v1`} />
+
+      <h2 id="openapi">OpenAPI specification</h2>
+      <p>
+        The full API is described by a machine-readable OpenAPI 3.1 document. Use it to
+        generate clients, drive an API explorer, or validate requests.
+      </p>
+      <CodeBlock language="bash" code={`# JSON (served live)\ncurl https://passify.biz/api/openapi\n\n# YAML (published in the repo)\n# openapi.yaml`} />
+      <Callout tone="tip">The official TypeScript SDK is generated from this same specification, so it never drifts from the API.</Callout>
+
 
       <h2 id="auth">Authentication</h2>
       <p>
