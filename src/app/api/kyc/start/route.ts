@@ -25,6 +25,11 @@ export async function POST(req: NextRequest) {
     const { data, errorResponse: validationError } = validateOr(kycStartSchema, body);
     if (validationError) return validationError;
 
+    if (key.isTest) {
+      const { testStartSession } = await import("@/lib/test-mode");
+      return NextResponse.json(testStartSession(data!.userPubkey, data!.schemaId));
+    }
+
     const provider = await getKycProvider();
     const started = await provider.startSession({ userPubkey: data!.userPubkey, schemaId: data!.schemaId });
 

@@ -6,6 +6,7 @@ import { AuthError } from "@/lib/errors";
 import { rateLimit } from "@/lib/cache";
 import { parseJson } from "@/lib/db/json";
 import { API_KEY_PREFIX } from "@/lib/constants";
+import { isTestKeyPrefix } from "@/lib/test-mode";
 
 // Public API auth: `Authorization: Bearer <key>`.
 // Keys are stored as SHA-256 hashes; the plaintext is shown once at creation.
@@ -19,6 +20,7 @@ export interface AuthenticatedApiKey {
   tier: string;
   allowedMints: string[];
   quotaRemaining: number;
+  isTest: boolean;
 }
 
 function getBearerToken(req: Request): string | null {
@@ -68,6 +70,7 @@ export async function authenticateApiKey(req: Request): Promise<AuthenticatedApi
     tier: key.tier,
     allowedMints: parseJson<string[]>(key.allowedMints) ?? [],
     quotaRemaining: remaining,
+    isTest: isTestKeyPrefix(key.keyPrefix),
   };
 }
 

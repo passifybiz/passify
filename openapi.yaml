@@ -11,6 +11,10 @@ info:
     except `/health` and `/kyc/webhook`: `Authorization: Bearer passify_live_...`.
     Keys are created in the dashboard and shown once.
 
+    **Test mode.** Keys with the `passify_test_` prefix return deterministic
+    sandbox responses (each marked `"test": true`) — no KYC provider, no mainnet,
+    and no real attestation data. Use them to build before going live.
+
     **Rate limits.** A per-key monthly attestation quota applies by tier
     (free 500, pro 10,000, enterprise custom) and returns `429 quota_exceeded`.
     `POST /kyc/start` is additionally limited to 20 requests per 60s per key.

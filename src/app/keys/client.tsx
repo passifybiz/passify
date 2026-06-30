@@ -24,13 +24,14 @@ export function KeysClient({ keys, mints }: { keys: KeyRow[]; mints: { slug: str
   const [showModal, setShowModal] = useState(false);
   const [platformName, setPlatformName] = useState("");
   const [tier, setTier] = useState("free");
+  const [mode, setMode] = useState<"live" | "test">("live");
   const [allowedMints, setAllowedMints] = useState<string[]>([]);
   const [creating, setCreating] = useState(false);
   const [createdKey, setCreatedKey] = useState<string | null>(null);
   const [revoking, setRevoking] = useState<string | null>(null);
 
   async function handleCreate() {
-    const parsed = createApiKeySchema.safeParse({ platformName: platformName.trim(), tier, allowedMints });
+    const parsed = createApiKeySchema.safeParse({ platformName: platformName.trim(), tier, allowedMints, mode });
     if (!parsed.success) {
       setCreating(false);
       return;
@@ -40,7 +41,7 @@ export function KeysClient({ keys, mints }: { keys: KeyRow[]; mints: { slug: str
       const res = await fetch("/api/keys", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ platformName, tier, allowedMints }),
+        body: JSON.stringify({ platformName, tier, allowedMints, mode }),
       });
       const data = await res.json();
       if (res.ok) {
@@ -96,6 +97,9 @@ export function KeysClient({ keys, mints }: { keys: KeyRow[]; mints: { slug: str
           <div className="key-card__top">
             <div>
               <span className="mono" style={{ fontSize: "13px", color: "var(--text)" }}>{key.keyPrefix}****</span>
+              {key.keyPrefix.startsWith("passify_test") && (
+                <span className="status status--warning text-sm" style={{ marginLeft: "8px" }}>Test</span>
+              )}
               <span className="status status--success text-sm" style={{ marginLeft: "12px" }}>
                 {key.isActive ? "Active" : "Revoked"}
               </span>
@@ -181,6 +185,23 @@ export function KeysClient({ keys, mints }: { keys: KeyRow[]; mints: { slug: str
                       >
                         {t.charAt(0).toUpperCase() + t.slice(1)}<br />
                           <span className="text-xs text-muted">{TIER_LIMITS[t].toLocaleString()}/mo</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <label>Mode</label>
+                  <div className="radio-group">
+                    {(["live", "test"] as const).map((m) => (
+                      <button
+                        key={m}
+                        type="button"
+                        className={`radio-pill${mode === m ? " radio-pill--selected" : ""}`}
+                        onClick={() => setMode(m)}
+                      >
+                        {m === "live" ? "Live" : "Test"}<br />
+                        <span className="text-xs text-muted">{m === "live" ? "real attestations" : "sandbox, deterministic"}</span>
                       </button>
                     ))}
                   </div>

@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 const toc = [
   { id: "api-keys", title: "API keys" },
   { id: "making-requests", title: "Making authenticated requests" },
+  { id: "test-mode", title: "Test mode" },
   { id: "key-prefixes", title: "Key prefixes & identification" },
   { id: "rotation", title: "Rotation & revocation" },
   { id: "best-practices", title: "Best practices" },
@@ -57,6 +58,41 @@ export default function AuthenticationPage() {
   "request_id": "a1b2c3d4"
 }`}
       />
+
+      <h2 id="test-mode">Test mode</h2>
+      <p>
+        Create a <strong>test-mode</strong> key in the dashboard (choose <em>Test</em> when creating a key) to
+        build your integration in a deterministic sandbox. Test keys carry the <code>passify_test_</code>
+        prefix and behave exactly like live keys at the HTTP level — same endpoints, same response shapes — but
+        every response is <strong>synthesized deterministically from your inputs</strong>. No KYC provider is
+        contacted, no transaction touches mainnet, and no real attestation data is read or written.
+      </p>
+      <CodeBlock
+        language="bash"
+        code={`curl https://passify.biz/api/v1/kyc/status/7xKXtg2... \\
+  -H "Authorization: Bearer passify_test_xxx"`}
+      />
+      <CodeBlock
+        language="json"
+        title="Test-mode response"
+        code={`{
+  "status": "verified",
+  "attestation_id": "att_test_9f2ak3xq",
+  "schema": "kyc_individual_v1",
+  "expires_at": "2099-01-01T00:00:00.000Z",
+  "test": true
+}`}
+      />
+      <ul>
+        <li>Every test-mode response includes <code>&quot;test&quot;: true</code>.</li>
+        <li>The same input always returns the same output, so assertions are stable in CI.</li>
+        <li>A test-mode wallet always reads as <code>verified</code>, so you can exercise the full
+          verify → mint/transfer flow without running a KYC session.</li>
+      </ul>
+      <Callout tone="warning">
+        Test mode never produces real, on-chain attestations. Use a live key
+        (<code>passify_live_</code>) for production.
+      </Callout>
 
       <h2 id="key-prefixes">Key prefixes &amp; identification</h2>
       <p>

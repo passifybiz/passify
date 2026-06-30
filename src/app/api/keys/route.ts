@@ -30,7 +30,8 @@ export async function POST(req: NextRequest) {
     const { data, errorResponse: validationError } = validateOr(createApiKeySchema, body);
     if (validationError) return validationError;
 
-    const prefix = `passify_live_${randomBytes(3).toString("hex")}`;
+    const prefixBase = data!.mode === "test" ? "passify_test_" : "passify_live_";
+    const prefix = `${prefixBase}${randomBytes(3).toString("hex")}`;
     const secret = `${prefix}${randomBytes(20).toString("hex")}`;
 
     const [key] = await db.insert(apiKeys).values({

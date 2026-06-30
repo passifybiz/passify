@@ -13,6 +13,11 @@ export async function GET(
     const key = await authenticateApiKey(req);
     const { id } = await params;
 
+    if (key.isTest) {
+      const { testAttestation } = await import("@/lib/test-mode");
+      return NextResponse.json(testAttestation(id));
+    }
+
     const att = await db.query.attestations.findFirst({
       where: eq(attestations.attestationId, id),
     });

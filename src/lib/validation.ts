@@ -22,6 +22,7 @@ export const createApiKeySchema = z.object({
   platformName: z.string().min(1).max(100),
   tier: z.enum(["free", "pro", "enterprise"]).default("free"),
   allowedMints: z.array(z.string()).default([]),
+  mode: z.enum(["live", "test"]).default("live"),
 });
 
 export const patchApiKeySchema = z.object({

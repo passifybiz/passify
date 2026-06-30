@@ -15,6 +15,11 @@ export async function GET(
     const key = await authenticateApiKey(req);
     const { pubkey } = await params;
 
+    if (key.isTest) {
+      const { testKycStatus } = await import("@/lib/test-mode");
+      return NextResponse.json(testKycStatus(pubkey));
+    }
+
     // Cache attestation lookups (60s TTL) — hottest path for platforms
     const cacheKey = `att:${pubkey}`;
     const cached = await cache.get(cacheKey);

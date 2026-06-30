@@ -17,6 +17,11 @@ export async function POST(req: NextRequest) {
     const { data, errorResponse: validationError } = validateOr(tokenTransferSchema, body);
     if (validationError) return validationError;
 
+    if (key.isTest) {
+      const { testTransferResult } = await import("@/lib/test-mode");
+      return NextResponse.json(testTransferResult(data!.mint_config));
+    }
+
     const config = await resolveAllowedMint(data!.mint_config, key);
     const rule = await db.query.complianceRules.findFirst({
       where: eq(complianceRules.mintConfigId, config.id),
