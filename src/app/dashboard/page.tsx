@@ -33,6 +33,29 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
   const hasNext = activityRows.length > PAGE_SIZE;
   const pageRows = activityRows.slice(0, PAGE_SIZE);
 
+  // Per-key usage (real data) for the usage table.
+  const keyUsage = (await db
+    .select({
+      platformName: apiKeys.platformName,
+      keyPrefix: apiKeys.keyPrefix,
+      tier: apiKeys.tier,
+      currentUsage: apiKeys.currentUsage,
+      monthlyLimit: apiKeys.monthlyLimit,
+      isActive: apiKeys.isActive,
+      lastUsedAt: apiKeys.lastUsedAt,
+    })
+    .from(apiKeys)
+    .orderBy(sql`${apiKeys.createdAt} desc`)
+    .limit(50)) as {
+    platformName: string;
+    keyPrefix: string;
+    tier: string;
+    currentUsage: number;
+    monthlyLimit: number;
+    isActive: boolean;
+    lastUsedAt: string | null;
+  }[];
+
   type Row = { ts: Date | string; type: string; user: string | null; status: string; statusTone: "success" | "warning" | "muted" };
   const rows: Row[] = pageRows.map((a) => {
     const label = a.action === "rule_updated" ? "Rule Update"
@@ -49,7 +72,12 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
   return (
     <div className="container">
-      <h2 className="h2 mb-6">Overview</h2>
+      <div className="row row--between mb-6">
+        <h2 className="h2" style={{ margin: 0 }}>Overview</h2>
+        {!isEmpty && (
+          <a href="/api/dashboard/export" className="btn btn--outline btn--sm">Export activity (CSV)</a>
+        )}
+      </div>
 
       {isEmpty && (
         <div className="card card--pad mb-6" style={{ borderLeft: "3px solid var(--primary)" }}>
@@ -88,6 +116,44 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
           <div className="stat__label">Cross-platform reuse</div>
         </div>
       </div>
+
+      {keyUsage.length > 0 && (
+        <div className="card mb-6">
+          <div className="card--pad" style={{ paddingBottom: 0 }}>
+            <h3 className="h5" style={{ marginBottom: "4px" }}>Usage by API key</h3>
+            <p className="help-text" style={{ marginBottom: "12px" }}>Monthly attestation usage against each key&apos;s quota.</p>
+          </div>
+          <table className="table" aria-label="Usage by API key">
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Plan</th>
+                <th>Usage</th>
+                <th>Last used</th>
+              </tr>
+            </thead>
+            <tbody>
+              {keyUsage.map((k) => {
+                const pct = k.monthlyLimit > 0 ? Math.min(100, Math.round((k.currentUsage / k.monthlyLimit) * 100)) : 0;
+                const isTest = k.keyPrefix.startsWith("passify_test");
+                return (
+                  <tr key={k.keyPrefix}>
+                    <td>
+                      <span className="mono text-sm">{k.keyPrefix}****</span>
+                      {isTest && <span className="status status--warning text-sm" style={{ marginLeft: "8px" }}>Test</span>}
+                      {!k.isActive && <span className="status status--muted text-sm" style={{ marginLeft: "8px" }}>Revoked</span>}
+                      <div className="text-muted text-xs">{k.platformName}</div>
+                    </td>
+                    <td className="text-sm">{k.tier.charAt(0).toUpperCase() + k.tier.slice(1)}</td>
+                    <td className="text-sm">{formatNumber(k.currentUsage)} / {formatNumber(k.monthlyLimit)} ({pct}%)</td>
+                    <td className="text-muted text-sm">{k.lastUsedAt ? formatShortTime(k.lastUsedAt) : "—"}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
 
       {isEmpty ? (
         <div className="card card--pad" style={{ textAlign: "center", padding: "48px 24px" }}>
