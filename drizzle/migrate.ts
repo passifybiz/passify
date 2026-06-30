@@ -11,16 +11,23 @@ if (!url) {
   process.exit(1);
 }
 
-// enable_extension handled by the migrations folder created by drizzle-kit;
-// to keep this zero-config we ensure pgcrypto (for gen_random_uuid) up front.
-const bootstrap = postgres(url, { max: 1 });
-await bootstrap`CREATE EXTENSION IF NOT EXISTS pgcrypto`;
-await bootstrap.end();
+async function main(databaseUrl: string) {
+  // enable_extension handled by the migrations folder created by drizzle-kit;
+  // to keep this zero-config we ensure pgcrypto (for gen_random_uuid) up front.
+  const bootstrap = postgres(databaseUrl, { max: 1 });
+  await bootstrap`CREATE EXTENSION IF NOT EXISTS pgcrypto`;
+  await bootstrap.end();
 
-const sql = postgres(url, { max: 1, prepare: false });
-const db = drizzle(sql);
+  const sql = postgres(databaseUrl, { max: 1, prepare: false });
+  const db = drizzle(sql);
 
-console.log("→ Pushing Passify schema to Postgres…");
-await migrate(db, { migrationsFolder: "./drizzle/migrations" });
-await sql.end();
-console.log("✓ Schema applied.");
+  console.log("→ Pushing Passify schema to Postgres…");
+  await migrate(db, { migrationsFolder: "./drizzle/migrations" });
+  await sql.end();
+  console.log("✓ Schema applied.");
+}
+
+main(url).catch((err) => {
+  console.error("✗ Migration failed:", err);
+  process.exit(1);
+});
