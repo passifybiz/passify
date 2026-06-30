@@ -47,9 +47,10 @@ export class Passify {
 
   // ── KYC ────────────────────────────────────────────────────
   readonly kyc = {
-    start: (params: StartKycParams): Promise<StartKycResult> =>
+    start: (params: StartKycParams, opts?: { idempotencyKey?: string }): Promise<StartKycResult> =>
       this.request("POST", "/kyc/start", {
         body: { userPubkey: params.userPubkey, schemaId: params.schemaId },
+        idempotencyKey: opts?.idempotencyKey,
         map: (r: { session_id: string; session_url: string }) => ({
           sessionId: r.session_id,
           sessionUrl: r.session_url,
@@ -91,9 +92,10 @@ export class Passify {
 
   // ── Token ──────────────────────────────────────────────────
   readonly token = {
-    mint: (params: MintParams): Promise<MintResult> =>
+    mint: (params: MintParams, opts?: { idempotencyKey?: string }): Promise<MintResult> =>
       this.request("POST", "/token/mint", {
         auth: true,
+        idempotencyKey: opts?.idempotencyKey,
         body: { user_pubkey: params.userPubkey, mint_config: params.mintConfig, amount: params.amount },
         map: (r: { status: string; unsigned_transaction_base64: string; mint: string; amount: number }) => ({
           status: r.status,
@@ -103,9 +105,10 @@ export class Passify {
         }),
       }),
 
-    transfer: (params: TransferParams): Promise<TransferResult> =>
+    transfer: (params: TransferParams, opts?: { idempotencyKey?: string }): Promise<TransferResult> =>
       this.request("POST", "/token/transfer", {
         auth: true,
+        idempotencyKey: opts?.idempotencyKey,
         body: { mint_config: params.mintConfig, sender: params.sender, recipient: params.recipient, amount: params.amount },
         map: (r: { status: string; unsigned_transaction_base64: string }) => ({
           status: r.status,
@@ -133,12 +136,13 @@ export class Passify {
   private async request<TWire, TOut>(
     method: string,
     path: string,
-    opts: { body?: unknown; map: (wire: TWire) => TOut; auth: boolean },
+    opts: { body?: unknown; map: (wire: TWire) => TOut; auth: boolean; idempotencyKey?: string },
   ): Promise<TOut> {
     const url = `${this.baseUrl}${path}`;
     const headers: Record<string, string> = { Accept: "application/json" };
     if (opts.auth) headers.Authorization = `Bearer ${this.apiKey}`;
     if (opts.body !== undefined) headers["Content-Type"] = "application/json";
+    if (opts.idempotencyKey) headers["Idempotency-Key"] = opts.idempotencyKey;
 
     let attempt = 0;
     // total tries = 1 + maxRetries

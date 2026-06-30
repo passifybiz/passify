@@ -110,6 +110,7 @@ export const openapiSpec = {
         summary: "Start a KYC session",
         description: "Creates a verification session with the configured KYC provider and returns a hosted session URL to redirect the investor to.",
         operationId: "startKyc",
+        parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }],
         requestBody: {
           required: true,
           content: { "application/json": { schema: { $ref: "#/components/schemas/KycStartRequest" }, example: { userPubkey: "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU", schemaId: "kyc_individual_v1" } } },
@@ -174,6 +175,7 @@ export const openapiSpec = {
         summary: "Build a compliance-checked mint transaction",
         description: "Verifies the recipient holds a valid attestation satisfying the asset's compliance rules, then returns an unsigned Token-2022 mint transaction (base64). The caller signs and submits it.",
         operationId: "buildMint",
+        parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }],
         requestBody: { required: true, content: { "application/json": { schema: { $ref: "#/components/schemas/TokenMintRequest" }, example: { user_pubkey: "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU", mint_config: "us_real_estate_fund_v1", amount: 1000 } } } },
         responses: {
           "200": { description: "Unsigned transaction built.", content: { "application/json": { schema: { $ref: "#/components/schemas/TokenMintResponse" } } } },
@@ -190,6 +192,7 @@ export const openapiSpec = {
         summary: "Build a compliance-checked transfer transaction",
         description: "Verifies the sender holds a valid attestation satisfying the asset's compliance rules, then returns an unsigned Token-2022 transfer transaction (base64).",
         operationId: "buildTransfer",
+        parameters: [{ $ref: "#/components/parameters/IdempotencyKey" }],
         requestBody: { required: true, content: { "application/json": { schema: { $ref: "#/components/schemas/TokenTransferRequest" }, example: { mint_config: "us_real_estate_fund_v1", sender: "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU", recipient: "9yQp...", amount: 500 } } } },
         responses: {
           "200": { description: "Unsigned transaction built.", content: { "application/json": { schema: { $ref: "#/components/schemas/TokenTransferResponse" } } } },
@@ -204,6 +207,15 @@ export const openapiSpec = {
   components: {
     securitySchemes: {
       bearerAuth: { type: "http", scheme: "bearer", bearerFormat: "API key (passify_...)", description: "API key as a bearer token." },
+    },
+    parameters: {
+      IdempotencyKey: {
+        name: "Idempotency-Key",
+        in: "header",
+        required: false,
+        schema: { type: "string", maxLength: 255 },
+        description: "Optional unique key to make a write safely retryable. Replays return the original response with `Idempotent-Replayed: true`.",
+      },
     },
     responses,
     schemas: {

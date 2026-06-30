@@ -16,6 +16,7 @@ const toc = [
   { id: "auth", title: "Authentication" },
   { id: "errors", title: "Errors" },
   { id: "rate-limits", title: "Rate limits" },
+  { id: "idempotency", title: "Idempotency" },
   { id: "conventions", title: "Conventions" },
   { id: "endpoints", title: "Endpoint index" },
 ];
@@ -83,6 +84,27 @@ export default function ApiOverviewPage() {
         </tbody>
       </table>
       <Callout tone="note">Exceeding your quota returns <code>429</code>. Usage resets monthly and is visible in the dashboard.</Callout>
+
+      <h2 id="idempotency">Idempotency</h2>
+      <p>
+        Write endpoints (<code>POST /kyc/start</code>, <code>POST /token/mint</code>,{" "}
+        <code>POST /token/transfer</code>) accept an optional <code>Idempotency-Key</code> header so a retried
+        request is never processed twice. Reuse the same key when retrying after a network error.
+      </p>
+      <CodeBlock
+        language="bash"
+        code={`curl -X POST https://passify.biz/api/v1/token/mint \\
+  -H "Authorization: Bearer passify_live_xxx" \\
+  -H "Idempotency-Key: 7b9c1e2f-..." \\
+  -H "Content-Type: application/json" \\
+  -d '{"user_pubkey":"7xKX...","mint_config":"us_real_estate_fund_v1","amount":1000}'`}
+      />
+      <ul>
+        <li>The first request for a key is processed normally; the response is stored for 24 hours.</li>
+        <li>A replay with the same key returns the original response with the header <code>Idempotent-Replayed: true</code>.</li>
+        <li>Server errors (<code>5xx</code>) are not stored, so a failed write can be safely retried.</li>
+        <li>Keys are scoped per API key and must be 255 characters or fewer.</li>
+      </ul>
 
       <h2 id="conventions">Conventions</h2>
       <ul>
