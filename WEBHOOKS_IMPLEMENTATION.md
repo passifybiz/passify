@@ -87,13 +87,16 @@ wait in `pending` with a `next_retry_at` but are not retried automatically.
 `vercel.json` already declares:
 
 ```json
-{ "crons": [ { "path": "/api/cron/webhook-retry", "schedule": "*/5 * * * *" } ] }
+{ "crons": [ { "path": "/api/cron/webhook-retry", "schedule": "0 3 * * *" } ] }
 ```
 
+- The schedule is **daily** because Vercel's Hobby plan limits cron frequency to
+  once per day. On a **Pro** plan, change it to `*/5 * * * *` (every 5 minutes)
+  for production-grade retry cadence — or point an external scheduler
+  (e.g. cron-job.org, GitHub Actions) at the endpoint instead.
 - Set `CRON_SECRET` (any long random string) in the Vercel project env. Vercel Cron
   sends it as `Authorization: Bearer <CRON_SECRET>`; the endpoint fails closed
   (503) in production if the secret is unset, and 401 if it doesn't match.
-- Minutely/5-minutely schedules require a Vercel plan that supports them.
 - You can also invoke the worker manually:
   `curl -H "Authorization: Bearer $CRON_SECRET" https://passify.biz/api/cron/webhook-retry`
 
