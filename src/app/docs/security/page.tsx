@@ -6,6 +6,7 @@ import { Callout } from "@/components/docs/callout";
 import { EMAIL } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/security" },
   title: "Security",
   description: "Passify's data architecture, the zero-PII guarantee, infrastructure controls, and how to report a vulnerability.",
 };

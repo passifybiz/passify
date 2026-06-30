@@ -3,6 +3,7 @@ import { DocArticle } from "@/components/docs/doc-article";
 import { TICKER } from "@/lib/token";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/glossary" },
   title: "Glossary",
   description: "Plain-language definitions of the terms used throughout the Passify documentation.",
 };

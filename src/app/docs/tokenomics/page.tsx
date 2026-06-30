@@ -6,6 +6,7 @@ import { ContractAddress } from "@/components/site/token-address";
 import { TICKER, TOKEN, formatSupply } from "@/lib/token";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/tokenomics" },
   title: `${TICKER} token overview`,
   description: `An overview of the ${TICKER} token: its role in the Passify network, key parameters, and where to learn more. Contract address is a placeholder until mainnet launch.`,
 };

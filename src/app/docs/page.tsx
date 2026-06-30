@@ -4,6 +4,7 @@ import { DocArticle } from "@/components/docs/doc-article";
 import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs" },
   title: "Introduction",
   description:
     "What Passify is, the problems it solves, and how identity attestations and compliance rules fit together for Solana RWA platforms.",

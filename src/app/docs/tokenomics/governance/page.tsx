@@ -5,6 +5,7 @@ import { Callout } from "@/components/docs/callout";
 import { TICKER } from "@/lib/token";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/tokenomics/governance" },
   title: `${TICKER} governance`,
   description: `How ${TICKER} holders steer schemas, default rules, and treasury decisions. Proposed process, subject to change.`,
 };

@@ -5,6 +5,7 @@ import { Callout } from "@/components/docs/callout";
 import { EMAIL } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/troubleshooting" },
   title: "Troubleshooting",
   description: "Common Passify API errors and how to resolve them, from 401s to compliance 403s.",
 };

@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { DocsSidebar } from "./sidebar";
+import { DocsSearch } from "./docs-search";
+import { useFocusTrap } from "@/lib/use-focus-trap";
 import { GITHUB_URL } from "@/lib/site";
 
 /**
@@ -11,6 +13,9 @@ import { GITHUB_URL } from "@/lib/site";
  */
 export function DocsNavbar() {
   const [open, setOpen] = useState(false);
+  const drawerRef = useRef<HTMLDivElement>(null);
+
+  useFocusTrap(drawerRef, open);
 
   // Lock body scroll while the mobile drawer is open, and close on Escape.
   useEffect(() => {
@@ -45,6 +50,7 @@ export function DocsNavbar() {
         </div>
 
         <nav className="docs-topbar__nav" aria-label="Site">
+          <DocsSearch />
           <Link href="/docs" className="docs-topbar__link">Docs</Link>
           <Link href="/docs/tokenomics" className="docs-topbar__link">Token</Link>
           <a href={GITHUB_URL} className="docs-topbar__link" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -53,7 +59,7 @@ export function DocsNavbar() {
       </div>
 
       {open && (
-        <div className="docs-drawer" role="dialog" aria-label="Documentation navigation">
+        <div ref={drawerRef} className="docs-drawer" role="dialog" aria-modal="true" aria-label="Documentation navigation">
           <DocsSidebar onNavigate={() => setOpen(false)} />
         </div>
       )}

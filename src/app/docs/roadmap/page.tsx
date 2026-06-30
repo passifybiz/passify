@@ -5,6 +5,7 @@ import { Callout } from "@/components/docs/callout";
 import { TICKER } from "@/lib/token";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/roadmap" },
   title: "Roadmap",
   description: "What ships in Passify today and what is planned next, from additional providers to token governance.",
 };

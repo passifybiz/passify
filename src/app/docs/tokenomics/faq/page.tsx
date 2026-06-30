@@ -6,6 +6,7 @@ import { ContractAddress } from "@/components/site/token-address";
 import { TICKER } from "@/lib/token";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/tokenomics/faq" },
   title: `${TICKER} FAQ & risk`,
   description: `Frequently asked questions about the ${TICKER} token and the full risk disclaimer. Not financial advice; not an offer.`,
 };

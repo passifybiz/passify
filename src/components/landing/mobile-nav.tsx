@@ -1,11 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AuthButton } from "./auth-buttons";
+import { useFocusTrap } from "@/lib/use-focus-trap";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+
+  useFocusTrap(navRef, open);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -31,7 +35,7 @@ export function MobileNav() {
         <span className={`hamburger${open ? " hamburger--open" : ""}`} />
       </button>
       {open && (
-        <nav className="mobile-nav" onClick={() => setOpen(false)}>
+        <nav ref={navRef} className="mobile-nav" aria-label="Mobile navigation" onClick={() => setOpen(false)}>
           <a href="#how-it-works" className="mobile-nav__link">How it works</a>
           <a href="#use-cases" className="mobile-nav__link">Use cases</a>
           <a href="#pricing" className="mobile-nav__link">Pricing</a>

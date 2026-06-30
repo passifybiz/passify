@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { getPager, getSectionTitle, getDocItem, DOCS_LAST_UPDATED } from "@/lib/docs/nav";
+import { getPager, getSectionTitle, getDocItem, getRelated, DOCS_LAST_UPDATED } from "@/lib/docs/nav";
 import { SITE_URL } from "@/lib/site";
 import { DocToc, type TocEntry } from "./doc-toc";
 
@@ -32,6 +32,7 @@ export function DocArticle({
   const section = getSectionTitle(slug);
   const { prev, next } = getPager(slug);
   const item = getDocItem(slug);
+  const related = getRelated(slug);
 
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -81,6 +82,22 @@ export function DocArticle({
         <p className="doc-article__updated">
           Last updated <time dateTime={DOCS_LAST_UPDATED}>{UPDATED_LABEL}</time>
         </p>
+
+        {related.length > 0 && (
+          <section className="doc-related" aria-label="Related pages">
+            <p className="doc-related__title">Related pages</p>
+            <ul className="doc-related__list">
+              {related.map((r) => (
+                <li key={r.href}>
+                  <Link href={r.href} className="doc-related__link">
+                    <span className="doc-related__link-title">{r.title}</span>
+                    {r.summary && <span className="doc-related__link-summary">{r.summary}</span>}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <nav className="doc-pager" aria-label="Pagination">
           {prev ? (

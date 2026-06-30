@@ -5,6 +5,7 @@ import { Callout } from "@/components/docs/callout";
 import { TICKER } from "@/lib/token";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/changelog" },
   title: "Changelog",
   description: "Notable changes to the Passify platform and documentation.",
 };

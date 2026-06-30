@@ -5,6 +5,7 @@ import { CodeBlock } from "@/components/docs/code-block";
 import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/quickstart" },
   title: "Quickstart",
   description: "Verify an investor and read their attestation with the Passify API in about five minutes.",
 };

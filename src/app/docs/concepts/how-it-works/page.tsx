@@ -5,6 +5,7 @@ import { CodeBlock } from "@/components/docs/code-block";
 import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/concepts/how-it-works" },
   title: "How Passify works",
   description: "The end-to-end flow from KYC verification to a portable on-chain attestation, and how it gets reused.",
 };

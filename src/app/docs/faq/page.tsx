@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { DocArticle } from "@/components/docs/doc-article";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/faq" },
   title: "FAQ",
   description: "Frequently asked questions about Passify: privacy, portability, compliance, and integration.",
 };

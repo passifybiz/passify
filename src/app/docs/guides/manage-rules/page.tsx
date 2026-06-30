@@ -4,6 +4,7 @@ import { DocArticle } from "@/components/docs/doc-article";
 import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/guides/manage-rules" },
   title: "Manage compliance rules",
   description: "Edit per-asset transfer rules from the dashboard with a full audit trail — no redeploy required.",
 };

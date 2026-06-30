@@ -6,6 +6,7 @@ import { Endpoint } from "@/components/docs/endpoint";
 import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/api/token" },
   title: "Token API",
   description: "Build compliance-checked Token-2022 mint and transfer transactions. Returns unsigned transactions for the user to sign.",
 };

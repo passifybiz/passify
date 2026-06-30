@@ -54,6 +54,9 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
       {isEmpty && (
         <div className="card card--pad mb-6" style={{ borderLeft: "3px solid var(--primary)" }}>
           <h3 className="h5" style={{ marginBottom: "12px" }}>Getting started</h3>
+          <p className="help-text" style={{ marginBottom: "16px", maxWidth: "52ch" }}>
+            Three steps to your first portable attestation. You can complete them in any order — most teams start with an API key.
+          </p>
           <div className="stack" style={{ gap: "8px" }}>
             <div className="row" style={{ gap: "8px", fontSize: "14px" }}>
               <span style={{ width: "20px", height: "20px", borderRadius: "50%", background: activeKeys > 0 ? "var(--success)" : "var(--border)", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: "11px", color: "white", flexShrink: 0 }}>{activeKeys > 0 ? "✓" : "1"}</span>

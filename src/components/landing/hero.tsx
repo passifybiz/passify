@@ -14,8 +14,9 @@ export function Hero() {
         </h1>
         <p className="landing-hero__sub">
           Passify is the identity and compliance layer for Solana RWA. Investors verify
-          once; every connected platform reads the same attestation. No PII on-chain, no
-          contract redeploys to change a rule.
+          once; every connected platform reads the same <em>attestation</em> — a tamper-proof
+          record that verification happened, with no personal data on-chain and no contract
+          redeploys to change a rule.
         </p>
         <div className="row landing-hero__cta">
           <HeroAuthButton />

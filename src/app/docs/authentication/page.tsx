@@ -5,6 +5,7 @@ import { CodeBlock } from "@/components/docs/code-block";
 import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/authentication" },
   title: "Authentication",
   description: "How to authenticate with the Passify API using bearer API keys, plus key rotation and hygiene.",
 };

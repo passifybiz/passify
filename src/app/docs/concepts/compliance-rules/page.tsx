@@ -5,6 +5,7 @@ import { CodeBlock } from "@/components/docs/code-block";
 import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/concepts/compliance-rules" },
   title: "Compliance rules",
   description: "Mutable, per-asset transfer logic that Passify enforces at mint and transfer time — editable without redeploying a contract.",
 };

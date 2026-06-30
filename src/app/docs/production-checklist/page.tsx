@@ -4,6 +4,7 @@ import { DocArticle } from "@/components/docs/doc-article";
 import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/production-checklist" },
   title: "Production checklist",
   description: "Everything to confirm before taking a Passify integration live on Solana mainnet.",
 };

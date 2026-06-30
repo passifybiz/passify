@@ -5,6 +5,7 @@ import { CodeBlock } from "@/components/docs/code-block";
 import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/concepts/architecture" },
   title: "Architecture",
   description: "Passify's services, data flow, external dependencies, and the stateless backend design.",
 };

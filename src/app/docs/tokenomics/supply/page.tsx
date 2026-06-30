@@ -5,6 +5,7 @@ import { Callout } from "@/components/docs/callout";
 import { TICKER, formatSupply, TOKEN } from "@/lib/token";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/tokenomics/supply" },
   title: `${TICKER} supply & distribution`,
   description: `Proposed maximum supply, allocation, emission schedule, and vesting for the ${TICKER} token. Forward-looking and subject to change before launch.`,
 };

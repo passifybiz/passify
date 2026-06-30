@@ -5,6 +5,7 @@ import { CodeBlock } from "@/components/docs/code-block";
 import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/guides/mint-and-transfer" },
   title: "Mint & transfer tokens",
   description: "Build compliance-checked Token-2022 mint and transfer transactions and have the user sign them in their wallet.",
 };

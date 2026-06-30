@@ -5,6 +5,7 @@ import { CodeBlock } from "@/components/docs/code-block";
 import { Endpoint } from "@/components/docs/endpoint";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/api/attestation" },
   title: "Attestation API",
   description: "Read full attestation details by ID, including schema, hash, on-chain transaction, and expiry.",
 };

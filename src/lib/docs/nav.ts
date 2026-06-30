@@ -112,3 +112,13 @@ export function getPager(href: string): { prev?: DocItem; next?: DocItem } {
 export function getSectionTitle(href: string): string | undefined {
   return docsNav.find((s) => s.items.some((i) => i.href === href))?.title;
 }
+
+/**
+ * Other pages in the same section as `href` (excluding the page itself),
+ * used to render an automatic "Related pages" block. Returns up to `limit`.
+ */
+export function getRelated(href: string, limit = 4): DocItem[] {
+  const section = docsNav.find((s) => s.items.some((i) => i.href === href));
+  if (!section) return [];
+  return section.items.filter((i) => i.href !== href).slice(0, limit);
+}

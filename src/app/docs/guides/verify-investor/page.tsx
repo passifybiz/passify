@@ -5,6 +5,7 @@ import { CodeBlock } from "@/components/docs/code-block";
 import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/guides/verify-investor" },
   title: "Verify an investor",
   description: "Run a complete KYC session end to end and confirm the resulting on-chain attestation.",
 };

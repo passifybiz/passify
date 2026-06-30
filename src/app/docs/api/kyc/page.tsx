@@ -6,6 +6,7 @@ import { Endpoint } from "@/components/docs/endpoint";
 import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/api/kyc" },
   title: "KYC API",
   description: "Start KYC sessions, read attestation status by wallet, and receive signed provider webhooks.",
 };

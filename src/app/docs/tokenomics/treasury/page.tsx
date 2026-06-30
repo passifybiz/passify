@@ -6,6 +6,7 @@ import { Callout } from "@/components/docs/callout";
 import { TICKER } from "@/lib/token";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/tokenomics/treasury" },
   title: `${TICKER} treasury & revenue`,
   description: `How the Passify treasury is funded and governed, how liquidity is maintained, and how protocol revenue flows. Proposed model, subject to change.`,
 };

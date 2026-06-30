@@ -5,6 +5,7 @@ import { CodeBlock } from "@/components/docs/code-block";
 import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/concepts/attestations" },
   title: "Attestations",
   description: "What a Passify attestation is, the fields it contains, its lifecycle, and what it deliberately omits.",
 };

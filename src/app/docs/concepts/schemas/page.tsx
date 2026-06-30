@@ -4,6 +4,7 @@ import { DocArticle } from "@/components/docs/doc-article";
 import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/concepts/schemas" },
   title: "Schemas",
   description: "How attestation schemas describe what was verified, the built-in schemas, and how versioning works.",
 };

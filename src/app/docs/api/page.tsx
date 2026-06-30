@@ -5,6 +5,7 @@ import { CodeBlock } from "@/components/docs/code-block";
 import { Callout } from "@/components/docs/callout";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/docs/api" },
   title: "API reference",
   description: "Base URL, authentication, error format, rate limits, and conventions for the Passify REST API.",
 };
