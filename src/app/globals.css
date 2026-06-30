@@ -2432,7 +2432,7 @@ pre.mono {
   gap: 4px;
 }
 @media (max-width: 768px) {
-  .docs-search__trigger-label {
+  .docs-search__kbd {
     display: none;
   }
 }

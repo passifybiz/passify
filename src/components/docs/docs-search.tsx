@@ -94,7 +94,6 @@ export function DocsSearch() {
         type="button"
         className="docs-search__trigger"
         onClick={() => setOpen(true)}
-        aria-label="Search documentation"
       >
         <span className="docs-search__trigger-label">Search docs</span>
         <kbd className="docs-search__kbd">⌘K</kbd>
