@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions & integration help
+    url: https://github.com/passifybiz/passify/discussions
+    about: Ask "how do I…" questions and discuss ideas in GitHub Discussions.
+  - name: Documentation
+    url: https://passify.biz/docs
+    about: Guides, API reference, and SDK usage.
+  - name: Report a security vulnerability
+    url: https://github.com/passifybiz/passify/security/advisories/new
+    about: Privately report a vulnerability. Do not open a public issue.

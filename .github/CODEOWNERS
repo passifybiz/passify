@@ -1,0 +1,23 @@
+# Code owners for Passify.
+# These owners are requested for review on any matching pull request.
+# Docs: https://docs.github.com/articles/about-code-owners
+
+# Default owner for everything in the repo.
+*                       @halfin7
+
+# Security, compliance, and licensing surfaces require owner review.
+/SECURITY.md            @halfin7
+/LICENSE.md             @halfin7
+/.github/               @halfin7
+
+# API contract and SDK.
+/openapi.yaml           @halfin7
+/packages/sdk/          @halfin7
+
+# Database schema and migrations.
+/drizzle/               @halfin7
+
+# Authentication, compliance, and provider logic.
+/src/lib/auth/          @halfin7
+/src/lib/providers/     @halfin7
+/src/middleware.ts      @halfin7
