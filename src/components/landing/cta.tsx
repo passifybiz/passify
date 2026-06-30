@@ -12,7 +12,7 @@ export function Cta() {
           <CtaAuthButton />
           <a href="mailto:sales@passify.biz" className="btn btn--outline-white btn--lg">Talk to sales</a>
         </div>
-        <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)", marginTop: "16px" }}>
+        <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.85)", marginTop: "16px" }}>
           No credit card required
         </p>
       </div>

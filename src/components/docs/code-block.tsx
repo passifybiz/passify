@@ -41,9 +41,17 @@ export function CodeBlock({
           {copied ? "Copied" : "Copy"}
         </button>
       </div>
-      <pre className="code-block__pre">
+      <pre
+        className="code-block__pre"
+        tabIndex={0}
+        role="region"
+        aria-label={`${title ?? language} code sample`}
+      >
         <code>{code}</code>
       </pre>
+      <span className="sr-only" role="status" aria-live="polite">
+        {copied ? "Code copied to clipboard" : ""}
+      </span>
     </div>
   );
 }

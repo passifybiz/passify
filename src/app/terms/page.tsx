@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/site/footer";
 
-export const metadata: Metadata = { title: "Terms of Service — Passify" };
+export const metadata: Metadata = { title: "Terms of Service — Passify", alternates: { canonical: "/terms" } };
 
 export default function TermsPage() {
   return (

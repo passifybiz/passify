@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/site/footer";
 
-export const metadata: Metadata = { title: "Security — Passify" };
+export const metadata: Metadata = { title: "Security — Passify", alternates: { canonical: "/security" } };
 
 export default function SecurityPage() {
   return (
@@ -74,7 +74,7 @@ export default function SecurityPage() {
               <div><strong>Account Security</strong><br />Lockout after 10 failed attempts. Session revocation on password change.</div>
               <div><strong>API Keys</strong><br />SHA-256 hashed. Shown once. Monthly quota enforcement.</div>
               <div><strong>Audit Trail</strong><br />Every action logged with actor, timestamp, and before/after values.</div>
-              <div><strong>Error Tracking</strong><br />Sentry integration. Request IDs on every response.</div>
+              <div><strong>Error Tracking</strong><br />Structured server-side logging with a unique request ID on every response.</div>
               <div><strong>Headers</strong><br />CSP, HSTS, X-Frame-Options, Permissions-Policy.</div>
             </div>
           </section>

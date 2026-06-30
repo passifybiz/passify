@@ -87,6 +87,12 @@ export const docsNav: DocSection[] = [
 /** Flattened reading order used by the prev/next pager. */
 export const docsFlat: DocItem[] = docsNav.flatMap((s) => s.items);
 
+/**
+ * The date the documentation set was last reviewed/updated. Shown on every
+ * doc page and used in structured data. Update when docs change materially.
+ */
+export const DOCS_LAST_UPDATED = "2026-06-30";
+
 /** Look up a single doc item by its href. */
 export function getDocItem(href: string): DocItem | undefined {
   return docsFlat.find((i) => i.href === href);

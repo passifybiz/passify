@@ -12,11 +12,16 @@ import { GITHUB_URL } from "@/lib/site";
 export function DocsNavbar() {
   const [open, setOpen] = useState(false);
 
-  // Lock body scroll while the mobile drawer is open.
+  // Lock body scroll while the mobile drawer is open, and close on Escape.
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setOpen(false);
+    }
+    if (open) document.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKey);
     };
   }, [open]);
 

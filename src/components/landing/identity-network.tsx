@@ -20,6 +20,7 @@ export function IdentityNetwork() {
         className="idn__svg"
         viewBox="0 0 760 276"
         role="img"
+        aria-label="How a Passify attestation works: verify once, use everywhere"
         aria-describedby="idn-desc"
         preserveAspectRatio="xMidYMid meet"
       >

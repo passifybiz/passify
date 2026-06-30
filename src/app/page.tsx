@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Hero } from "@/components/landing/hero";
 import { Problem } from "@/components/landing/problem";
 import { Solution } from "@/components/landing/solution";
@@ -14,6 +15,10 @@ import { TokenSection } from "@/components/landing/token";
 import { MobileNav } from "@/components/landing/mobile-nav";
 import { AuthButton } from "@/components/landing/auth-buttons";
 import { SiteFooter } from "@/components/site/footer";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   const jsonLd = {
