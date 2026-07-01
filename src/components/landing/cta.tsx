@@ -6,7 +6,7 @@ export function Cta() {
     <section className="landing-cta">
       <GraphicBackground
         src="/assets/graphics/solution/connected-graph.svg"
-        opacity={0.08}
+        opacity={0.03}
         animate="fade"
         zIndex={0}
       />

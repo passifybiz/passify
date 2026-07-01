@@ -14,7 +14,7 @@ export function ProductPreview() {
       <GraphicBackground
         src="/assets/graphics/dashboard/dashboard-mesh.svg"
         className="graphic-wrap--dashboard-full"
-        opacity={0.2}
+        opacity={0.08}
         animate="pulse"
         parallax
         parallaxSpeed={0.01}
@@ -22,7 +22,7 @@ export function ProductPreview() {
       <GraphicBackground
         src="/assets/graphics/dashboard/compliance-matrix.svg"
         className="graphic-wrap--dashboard-right"
-        opacity={0.15}
+        opacity={0.06}
         animate="drift"
       />
       <div className="container">

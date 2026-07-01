@@ -6,7 +6,7 @@ export function ApiFlow() {
       <GraphicBackground
         src="/assets/graphics/api-flow/engineering-blueprint.svg"
         className="graphic-wrap--api-left"
-        opacity={0.25}
+        opacity={0.1}
         animate="pulse"
         parallax
         parallaxSpeed={0.03}
@@ -14,7 +14,7 @@ export function ApiFlow() {
       <GraphicBackground
         src="/assets/graphics/api-flow/node-connections.svg"
         className="graphic-wrap--api-right"
-        opacity={0.2}
+        opacity={0.08}
         animate="drift"
       />
       <div className="container">

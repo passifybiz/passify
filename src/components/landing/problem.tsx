@@ -22,7 +22,7 @@ export function Problem() {
       <GraphicBackground
         src="/assets/graphics/problem/disconnected-graph.svg"
         className="graphic-wrap--problem-left"
-        opacity={0.35}
+        opacity={0.15}
         animate="pulse"
         parallax
         parallaxSpeed={0.03}
@@ -30,7 +30,7 @@ export function Problem() {
       <GraphicBackground
         src="/assets/graphics/problem/broken-flow.svg"
         className="graphic-wrap--problem-right"
-        opacity={0.25}
+        opacity={0.1}
         animate="drift"
       />
       <div className="container container--narrow">

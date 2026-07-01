@@ -20,7 +20,7 @@ export function TokenSection() {
       <GraphicBackground
         src="/assets/graphics/token/token-utility.svg"
         className="graphic-wrap--token-center"
-        opacity={0.15}
+        opacity={0.06}
         animate="float"
         parallax
         parallaxSpeed={0.02}
@@ -28,13 +28,13 @@ export function TokenSection() {
       <GraphicBackground
         src="/assets/graphics/token/governance-network.svg"
         className="graphic-wrap--token-left"
-        opacity={0.15}
+        opacity={0.06}
         animate="drift"
       />
       <GraphicBackground
         src="/assets/graphics/token/staking-ecosystem.svg"
         className="graphic-wrap--token-right"
-        opacity={0.12}
+        opacity={0.05}
         animate="pulse"
       />
       <div className="container">

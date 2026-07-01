@@ -86,7 +86,7 @@ export function SiteFooter() {
       <GraphicBackground
         src="/assets/graphics/footer/network-fade.svg"
         className="graphic-wrap--footer-bg"
-        opacity={0.25}
+        opacity={0.1}
         animate="fade"
         parallax
         parallaxSpeed={0.02}

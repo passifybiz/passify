@@ -13,14 +13,14 @@ export function Solution() {
       <GraphicBackground
         src="/assets/graphics/solution/connected-graph.svg"
         className="graphic-wrap--solution-center"
-        opacity={0.25}
+        opacity={0.1}
         animate="float"
         parallax
         parallaxSpeed={0.02}
       />
       <GraphicBackground
         src="/assets/graphics/solution/identity-mesh.svg"
-        opacity={0.15}
+        opacity={0.06}
         animate="drift"
         overflow
         className="graphic-wrap--solution-center"

@@ -8,13 +8,13 @@ export function Hero() {
       <GraphicBackground
         src="/assets/graphics/hero/trust-network.svg"
         className="graphic-wrap--hero-center"
-        opacity={0.6}
+        opacity={0.2}
         animate="fade"
         zIndex={0}
       />
       <GraphicBackground
         src="/assets/graphics/hero/compliance-pathways.svg"
-        opacity={0.3}
+        opacity={0.12}
         animate="drift"
         overflow
         zIndex={0}

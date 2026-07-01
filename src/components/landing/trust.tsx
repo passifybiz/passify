@@ -7,7 +7,7 @@ export function Trust() {
       <GraphicBackground
         src="/assets/graphics/solution/verification-pipeline.svg"
         className="graphic-wrap--trust-strip"
-        opacity={0.15}
+        opacity={0.06}
         animate="fade"
       />
       <div className="container">
