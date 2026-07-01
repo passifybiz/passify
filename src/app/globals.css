@@ -873,7 +873,7 @@ a:hover {
 
 /* ── Mobile nav ───────────────────────────────────────────── */
 .mobile-nav-toggle {
-  display: none;
+  display: flex;
   width: 40px;
   height: 40px;
   align-items: center;
@@ -882,6 +882,11 @@ a:hover {
   border: none;
   cursor: pointer;
   padding: 0;
+}
+@media (min-width: 769px) {
+  .mobile-nav-toggle {
+    display: none;
+  }
 }
 .hamburger {
   display: block;
@@ -934,7 +939,13 @@ a:hover {
   color: var(--text);
 }
 .desktop-nav {
+  display: none;
   gap: 8px;
+}
+@media (min-width: 769px) {
+  .desktop-nav {
+    display: flex;
+  }
 }
 
 /* ── Responsive ────────────────────────────────────────────── */
@@ -947,12 +958,6 @@ a:hover {
   }
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .desktop-nav {
-    display: none;
-  }
-  .mobile-nav-toggle {
-    display: flex;
   }
   .mobile-nav {
     display: flex;
