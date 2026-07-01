@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" fill="none">
+  <g opacity="0.15">
+    <pattern id="bp-grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect x="9" y="9" width="2" height="2" rx="1" fill="#E5ECE5"/>
+    </pattern>
+    <rect width="640" height="280" fill="url(#bp-grid)"/>
+  </g>
+  <g opacity="0.12">
+    <pattern id="bp-cross" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <circle cx="30" cy="30" r="1" fill="#14532D"/>
+    </pattern>
+    <rect width="640" height="280" fill="url(#bp-cross)"/>
+  </g>
+  <g stroke="#E5ECE5" stroke-width="0.3" fill="none" opacity="0.4">
+    <line x1="0" y1="70" x2="640" y2="70"/>
+    <line x1="0" y1="140" x2="640" y2="140"/>
+    <line x1="0" y1="210" x2="640" y2="210"/>
+    <line x1="160" y1="0" x2="160" y2="280"/>
+    <line x1="320" y1="0" x2="320" y2="280"/>
+    <line x1="480" y1="0" x2="480" y2="280"/>
+  </g>
+  <g fill="none" stroke="#14532D" stroke-width="0.5" opacity="0.15">
+    <rect x="40" y="40" width="560" height="200" rx="4"/>
+    <rect x="60" y="60" width="520" height="160" rx="3"/>
+  </g>
+  <g fill="none" stroke="#14532D" stroke-width="0.4" opacity="0.2">
+    <path d="M80 100 L240 100 L240 160 L80 160 Z"/>
+    <path d="M280 100 L400 100 L400 160 L280 160 Z"/>
+    <path d="M440 100 L560 100 L560 160 L440 160 Z"/>
+  </g>
+  <g opacity="0.3">
+    <circle cx="160" cy="130" r="16" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.5"/>
+    <circle cx="160" cy="130" r="8" fill="#14532D" fill-opacity="0.3"/>
+    <circle cx="160" cy="130" r="3" fill="#14532D"/>
+  </g>
+  <g opacity="0.3">
+    <circle cx="340" cy="130" r="16" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.5"/>
+    <circle cx="340" cy="130" r="8" fill="#14532D" fill-opacity="0.3"/>
+    <circle cx="340" cy="130" r="3" fill="#14532D"/>
+  </g>
+  <g opacity="0.3">
+    <circle cx="500" cy="130" r="16" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.5"/>
+    <circle cx="500" cy="130" r="8" fill="#14532D" fill-opacity="0.3"/>
+    <circle cx="500" cy="130" r="3" fill="#14532D"/>
+  </g>
+  <g fill="none" stroke="#14532D" stroke-width="0.75" opacity="0.2">
+    <path d="M160 114 L160 80 L340 80 L340 114"/>
+    <path d="M340 114 L340 80 L500 80 L500 114"/>
+  </g>
+  <g opacity="0.15">
+    <circle cx="160" cy="74" r="4" fill="#22C55E"/>
+    <circle cx="340" cy="74" r="4" fill="#22C55E"/>
+    <circle cx="500" cy="74" r="4" fill="#22C55E"/>
+  </g>
+  <g fill="none" stroke="#E5ECE5" stroke-width="0.5" opacity="0.2">
+    <path d="M160 180 L160 210 L340 210 L340 180"/>
+    <path d="M340 180 L340 210 L500 210 L500 180"/>
+  </g>
+  <g opacity="0.12">
+    <circle cx="160" cy="216" r="3" fill="#14532D"/>
+    <circle cx="340" cy="216" r="3" fill="#14532D"/>
+    <circle cx="500" cy="216" r="3" fill="#14532D"/>
+  </g>
+  <g fill="none" stroke="#22C55E" stroke-width="0.5" opacity="0.12">
+    <path d="M80 70 C120 40, 200 40, 240 70"/>
+    <path d="M400 70 C440 40, 520 40, 560 70"/>
+  </g>
+</svg>

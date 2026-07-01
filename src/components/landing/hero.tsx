@@ -1,9 +1,27 @@
 import { HeroAuthButton } from "./auth-buttons";
 import { IdentityNetwork } from "./identity-network";
+import { GraphicBackground } from "@/components/graphics";
 
 export function Hero() {
   return (
     <section className="landing-hero">
+      <GraphicBackground
+        src="/assets/graphics/hero/trust-network.svg"
+        className="graphic-wrap--hero-center"
+        opacity={0.6}
+        animate="fade"
+        zIndex={0}
+      />
+      <GraphicBackground
+        src="/assets/graphics/hero/compliance-pathways.svg"
+        opacity={0.3}
+        animate="drift"
+        overflow
+        zIndex={0}
+        className="graphic-wrap--hero-center"
+        parallax
+        parallaxSpeed={0.02}
+      />
       <div className="container landing-hero__inner">
         <span className="landing-eyebrow">
           <span className="landing-eyebrow__dot" aria-hidden="true" />

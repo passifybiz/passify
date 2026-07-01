@@ -1,8 +1,15 @@
 import { CtaAuthButton } from "./auth-buttons";
+import { GraphicBackground } from "@/components/graphics";
 
 export function Cta() {
   return (
     <section className="landing-cta">
+      <GraphicBackground
+        src="/assets/graphics/solution/connected-graph.svg"
+        opacity={0.08}
+        animate="fade"
+        zIndex={0}
+      />
       <div className="container landing-cta__inner">
         <h2 className="landing-cta__title">Ready to integrate?</h2>
         <p className="landing-cta__sub">

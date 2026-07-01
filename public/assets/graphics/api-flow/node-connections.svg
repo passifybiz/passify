@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" fill="none">
+  <g opacity="0.15">
+    <pattern id="nc-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M15 0 L30 15 L15 30 L0 15 Z" stroke="#E5ECE5" stroke-width="0.3" fill="none"/>
+    </pattern>
+    <rect width="640" height="200" fill="url(#nc-grid)"/>
+  </g>
+  <g fill="none" stroke="#E5ECE5" stroke-width="0.5" opacity="0.2">
+    <path d="M80 100 C160 60, 320 140, 400 100" stroke="#14532D" stroke-width="0.5" opacity="0.15"/>
+    <path d="M400 100 C480 60, 560 140, 600 100" stroke="#14532D" stroke-width="0.5" opacity="0.15"/>
+  </g>
+  <g opacity="0.4">
+    <circle cx="80" cy="100" r="20" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.5"/>
+    <circle cx="80" cy="100" r="10" stroke="#14532D" stroke-width="0.5" fill="#F5F8F5" fill-opacity="0.4"/>
+    <circle cx="80" cy="100" r="3" fill="#14532D"/>
+  </g>
+  <g opacity="0.4">
+    <circle cx="400" cy="100" r="20" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.5"/>
+    <circle cx="400" cy="100" r="10" stroke="#14532D" stroke-width="0.5" fill="#F5F8F5" fill-opacity="0.4"/>
+    <circle cx="400" cy="100" r="3" fill="#14532D"/>
+  </g>
+  <g opacity="0.4">
+    <circle cx="600" cy="100" r="20" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.5"/>
+    <circle cx="600" cy="100" r="10" stroke="#14532D" stroke-width="0.5" fill="#F5F8F5" fill-opacity="0.4"/>
+    <circle cx="600" cy="100" r="3" fill="#14532D"/>
+  </g>
+  <g fill="none" stroke="#22C55E" stroke-width="0.75" opacity="0.2" stroke-dasharray="6 8">
+    <path d="M80 100 L400 100"/>
+    <path d="M400 100 L600 100"/>
+  </g>
+  <g opacity="0.2">
+    <circle cx="240" cy="100" r="8" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.4"/>
+    <circle cx="240" cy="100" r="3" fill="#22C55E" fill-opacity="0.4"/>
+  </g>
+  <g opacity="0.2">
+    <circle cx="500" cy="100" r="8" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.4"/>
+    <circle cx="500" cy="100" r="3" fill="#22C55E" fill-opacity="0.4"/>
+  </g>
+  <g opacity="0.15">
+    <circle cx="160" cy="60" r="10" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.3"/>
+    <circle cx="480" cy="140" r="10" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.3"/>
+  </g>
+  <g fill="none" stroke="#E5ECE5" stroke-width="0.5" opacity="0.15">
+    <path d="M160 60 L80 100"/>
+    <path d="M160 60 L400 100"/>
+    <path d="M480 140 L400 100"/>
+    <path d="M480 140 L600 100"/>
+  </g>
+</svg>

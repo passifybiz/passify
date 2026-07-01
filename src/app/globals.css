@@ -1025,6 +1025,230 @@ a:hover {
 }
 
 
+/* ── GRAPHIC BACKGROUND SYSTEM ────────────────────────────── */
+.graphic-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  transition: opacity 1s var(--ease-out);
+}
+.graphic-wrap--overflow {
+  overflow: visible;
+}
+.graphic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+/* float — gentle vertical hover */
+@keyframes graphicFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.graphic--float {
+  animation: graphicFloat 6s var(--ease-in-out) infinite;
+}
+/* drift — slow horizontal wander */
+@keyframes graphicDrift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+.graphic--drift {
+  animation: graphicDrift 8s var(--ease-in-out) infinite;
+}
+/* pulse — subtle opacity */
+@keyframes graphicPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.35; }
+}
+.graphic--pulse {
+  animation: graphicPulse 4s var(--ease-in-out) infinite;
+}
+/* fade in on load */
+@keyframes graphicFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.graphic--fade {
+  animation: graphicFadeIn 1.5s var(--ease-out) both;
+}
+
+/* Hero graphic — position behind content */
+.landing-hero {
+  position: relative;
+}
+.landing-hero .graphic-wrap {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 960px;
+  height: 100%;
+}
+
+/* Section-level graphics */
+.landing-section,
+.landing-cta,
+.site-footer {
+  position: relative;
+  overflow: hidden;
+}
+.landing-section .graphic-wrap,
+.landing-cta .graphic-wrap,
+.site-footer .graphic-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+.landing-section .container,
+.landing-cta .container,
+.site-footer__inner,
+.site-footer__baseline {
+  position: relative;
+  z-index: 1;
+}
+
+/* Graphic overrides per section — control position/size */
+.graphic-wrap--hero-center {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  max-width: 960px;
+}
+.graphic-wrap--problem-left {
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 60%;
+  height: 100%;
+  opacity: 0.3;
+}
+.graphic-wrap--problem-right {
+  position: absolute;
+  top: 30%;
+  right: -10%;
+  width: 50%;
+  height: 60%;
+  opacity: 0.25;
+}
+.graphic-wrap--solution-center {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 80%;
+}
+.graphic-wrap--api-left {
+  position: absolute;
+  top: 15%;
+  left: -8%;
+  width: 45%;
+  height: 70%;
+  opacity: 0.2;
+}
+.graphic-wrap--api-right {
+  position: absolute;
+  bottom: 10%;
+  right: -5%;
+  width: 40%;
+  height: 50%;
+  opacity: 0.15;
+}
+.graphic-wrap--dashboard-full {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.25;
+}
+.graphic-wrap--dashboard-right {
+  position: absolute;
+  top: 5%;
+  right: -5%;
+  width: 35%;
+  height: 40%;
+  opacity: 0.15;
+}
+.graphic-wrap--token-center {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55%;
+  height: 80%;
+}
+.graphic-wrap--token-left {
+  position: absolute;
+  top: 20%;
+  left: -5%;
+  width: 30%;
+  height: 60%;
+  opacity: 0.2;
+}
+.graphic-wrap--token-right {
+  position: absolute;
+  bottom: 10%;
+  right: -5%;
+  width: 35%;
+  height: 50%;
+  opacity: 0.18;
+}
+.graphic-wrap--footer-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+}
+.graphic-wrap--footer-end {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  opacity: 0.15;
+}
+.graphic-wrap--trust-strip {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.12;
+}
+
+@media (max-width: 768px) {
+  .graphic-wrap--problem-left,
+  .graphic-wrap--problem-right,
+  .graphic-wrap--api-left,
+  .graphic-wrap--api-right,
+  .graphic-wrap--dashboard-right,
+  .graphic-wrap--token-left,
+  .graphic-wrap--token-right {
+    opacity: 0.1;
+  }
+}
+@media (max-width: 480px) {
+  .graphic-wrap--problem-left,
+  .graphic-wrap--problem-right,
+  .graphic-wrap--api-left,
+  .graphic-wrap--api-right,
+  .graphic-wrap--dashboard-right,
+  .graphic-wrap--token-left,
+  .graphic-wrap--token-right {
+    opacity: 0.06;
+  }
+}
+
 /* ── MOTION & VISUAL POLISH ────────────────────────────────── */
 /* Philosophy: motion clarifies arrival and hierarchy. Never decorative,
    never bouncy. Flat brand color over gradients. Neutral elevation over glow. */

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 260" fill="none">
+  <g opacity="0.15">
+    <pattern id="se-grid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.3" fill="#E5ECE5"/>
+    </pattern>
+    <rect width="500" height="260" fill="url(#se-grid)"/>
+  </g>
+  <g fill="none" stroke="#E5ECE5" stroke-width="0.5" opacity="0.2">
+    <line x1="0" y1="65" x2="500" y2="65"/>
+    <line x1="0" y1="130" x2="500" y2="130"/>
+    <line x1="0" y1="195" x2="500" y2="195"/>
+  </g>
+  <g opacity="0.35">
+    <circle cx="250" cy="130" r="32" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.5"/>
+    <circle cx="250" cy="130" r="20" stroke="#14532D" stroke-width="0.75" fill="#F5F8F5" fill-opacity="0.4"/>
+    <circle cx="250" cy="130" r="9" fill="#14532D" fill-opacity="0.3"/>
+    <circle cx="250" cy="130" r="3" fill="#14532D"/>
+  </g>
+  <g opacity="0.25">
+    <circle cx="100" cy="70" r="18" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.4"/>
+    <circle cx="100" cy="70" r="8" stroke="#14532D" stroke-width="0.5" fill="#F5F8F5" fill-opacity="0.3"/>
+    <circle cx="100" cy="70" r="2" fill="#14532D"/>
+  </g>
+  <g opacity="0.25">
+    <circle cx="100" cy="190" r="18" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.4"/>
+    <circle cx="100" cy="190" r="8" stroke="#14532D" stroke-width="0.5" fill="#F5F8F5" fill-opacity="0.3"/>
+    <circle cx="100" cy="190" r="2" fill="#14532D"/>
+  </g>
+  <g opacity="0.25">
+    <circle cx="400" cy="70" r="18" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.4"/>
+    <circle cx="400" cy="70" r="8" stroke="#14532D" stroke-width="0.5" fill="#F5F8F5" fill-opacity="0.3"/>
+    <circle cx="400" cy="70" r="2" fill="#14532D"/>
+  </g>
+  <g opacity="0.25">
+    <circle cx="400" cy="190" r="18" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.4"/>
+    <circle cx="400" cy="190" r="8" stroke="#14532D" stroke-width="0.5" fill="#F5F8F5" fill-opacity="0.3"/>
+    <circle cx="400" cy="190" r="2" fill="#14532D"/>
+  </g>
+  <g fill="none" stroke="#14532D" stroke-width="0.5" opacity="0.2">
+    <path d="M250 130 L100 70"/>
+    <path d="M250 130 L100 190"/>
+    <path d="M250 130 L400 70"/>
+    <path d="M250 130 L400 190"/>
+    <path d="M100 70 L100 190"/>
+    <path d="M400 70 L400 190"/>
+  </g>
+  <g fill="none" stroke="#22C55E" stroke-width="0.5" opacity="0.1">
+    <path d="M100 70 L400 70"/>
+    <path d="M100 190 L400 190"/>
+  </g>
+</svg>

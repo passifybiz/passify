@@ -1,10 +1,22 @@
-/**
- * Visual API flow diagram showing the 3-step integration.
- * Replaces text-heavy "How it works" with a visual pipeline.
- */
+import { GraphicBackground } from "@/components/graphics";
+
 export function ApiFlow() {
   return (
     <section id="how-it-works" className="landing-section landing-section--highlight">
+      <GraphicBackground
+        src="/assets/graphics/api-flow/engineering-blueprint.svg"
+        className="graphic-wrap--api-left"
+        opacity={0.25}
+        animate="pulse"
+        parallax
+        parallaxSpeed={0.03}
+      />
+      <GraphicBackground
+        src="/assets/graphics/api-flow/node-connections.svg"
+        className="graphic-wrap--api-right"
+        opacity={0.2}
+        animate="drift"
+      />
       <div className="container">
         <h2 className="h2 landing-section__heading">Three API calls. Full compliance.</h2>
         <p className="landing-section__sub">No SDK. No Solana programs. Just REST.</p>

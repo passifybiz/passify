@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { GITHUB_URL, X_URL, X_IS_PLACEHOLDER, EMAIL } from "@/lib/site";
 import { TICKER } from "@/lib/token";
+import { GraphicBackground } from "@/components/graphics";
 
 type Col = { title: string; links: { label: string; href: string; external?: boolean }[] };
 
@@ -81,6 +82,14 @@ export function SiteFooter() {
 
   return (
     <footer className="site-footer">
+      <GraphicBackground
+        src="/assets/graphics/footer/network-fade.svg"
+        className="graphic-wrap--footer-bg"
+        opacity={0.25}
+        animate="fade"
+        parallax
+        parallaxSpeed={0.02}
+      />
       <div className="site-footer__inner">
         <div className="site-footer__brand">
           <Link href="/" className="wordmark" style={{ fontSize: "18px" }}>

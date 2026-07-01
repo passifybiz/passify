@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 240" fill="none">
+  <g opacity="0.12">
+    <pattern id="gn-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M15 0 L30 15 L15 30 L0 15 Z" stroke="#E5ECE5" stroke-width="0.3" fill="none"/>
+    </pattern>
+    <rect width="500" height="240" fill="url(#gn-grid)"/>
+  </g>
+  <g opacity="0.3">
+    <circle cx="250" cy="120" r="28" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.5"/>
+    <circle cx="250" cy="120" r="16" stroke="#14532D" stroke-width="0.75" fill="#F5F8F5" fill-opacity="0.4"/>
+    <circle cx="250" cy="120" r="7" fill="#14532D" fill-opacity="0.4"/>
+    <circle cx="250" cy="120" r="3" fill="#14532D"/>
+  </g>
+  <g opacity="0.2">
+    <circle cx="80" cy="60" r="14" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.4"/>
+    <circle cx="80" cy="60" r="6" fill="#14532D" fill-opacity="0.3"/>
+    <circle cx="80" cy="60" r="2" fill="#14532D"/>
+  </g>
+  <g opacity="0.2">
+    <circle cx="80" cy="180" r="14" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.4"/>
+    <circle cx="80" cy="180" r="6" fill="#14532D" fill-opacity="0.3"/>
+    <circle cx="80" cy="180" r="2" fill="#14532D"/>
+  </g>
+  <g opacity="0.2">
+    <circle cx="420" cy="60" r="14" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.4"/>
+    <circle cx="420" cy="60" r="6" fill="#14532D" fill-opacity="0.3"/>
+    <circle cx="420" cy="60" r="2" fill="#14532D"/>
+  </g>
+  <g opacity="0.2">
+    <circle cx="420" cy="180" r="14" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.4"/>
+    <circle cx="420" cy="180" r="6" fill="#14532D" fill-opacity="0.3"/>
+    <circle cx="420" cy="180" r="2" fill="#14532D"/>
+  </g>
+  <g fill="none" stroke="#14532D" stroke-width="0.5" opacity="0.18">
+    <path d="M250 120 L80 60"/>
+    <path d="M250 120 L80 180"/>
+    <path d="M250 120 L420 60"/>
+    <path d="M250 120 L420 180"/>
+  </g>
+  <g fill="none" stroke="#22C55E" stroke-width="0.5" opacity="0.12">
+    <path d="M80 60 L80 180"/>
+    <path d="M420 60 L420 180"/>
+    <path d="M80 60 L420 60"/>
+    <path d="M80 180 L420 180"/>
+  </g>
+</svg>
