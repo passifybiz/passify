@@ -1,5 +1,6 @@
 import { requireUser } from "@/lib/auth/session";
 import Link from "next/link";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 
@@ -32,7 +33,10 @@ export default async function DashboardLayout({ children }: { children: React.Re
     <div className="page">
       <header className="header">
         <div className="header__inner">
-          <Link href="/dashboard" className="wordmark">Passify</Link>
+          <Link href="/dashboard" className="wordmark">
+            <Image src="/logo.png" alt="Passify" width={32} height={32} className="wordmark__logo" />
+            <span>Passify</span>
+          </Link>
           <div className="row" style={{ gap: "16px" }}>
             <nav className="row" style={{ gap: "4px" }}>
               {navItems.map((item) => {

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { GITHUB_URL, X_URL, X_IS_PLACEHOLDER, EMAIL } from "@/lib/site";
 import { TICKER } from "@/lib/token";
 import { GraphicBackground } from "@/components/graphics";
@@ -93,7 +94,8 @@ export function SiteFooter() {
       <div className="site-footer__inner">
         <div className="site-footer__brand">
           <Link href="/" className="wordmark" style={{ fontSize: "18px" }}>
-            Passify
+            <Image src="/logo.png" alt="Passify" width={28} height={28} className="wordmark__logo" />
+            <span>Passify</span>
           </Link>
           <p className="site-footer__tagline">Identity proven. Assets unlocked.</p>
           <p className="site-footer__desc">

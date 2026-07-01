@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { Hero } from "@/components/landing/hero";
 import { Problem } from "@/components/landing/problem";
@@ -36,7 +37,10 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <header className="header">
         <div className="header__inner">
-          <Link href="/" className="wordmark">Passify</Link>
+          <Link href="/" className="wordmark">
+            <Image src="/logo.png" alt="Passify" width={32} height={32} className="wordmark__logo" />
+            <span>Passify</span>
+          </Link>
           <nav className="desktop-nav row" aria-label="Main navigation">
             <a href="#how-it-works" className="btn btn--link btn--sm">How it works</a>
             <a href="#use-cases" className="btn btn--link btn--sm">Use cases</a>

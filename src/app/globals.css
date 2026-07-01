@@ -406,15 +406,33 @@ a:hover {
   gap: var(--space-4);
 }
 .wordmark {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: 20px;
   color: var(--primary);
   text-decoration: none;
   letter-spacing: -0.01em;
+  transition: opacity var(--dur-2) var(--ease-out);
+}
+.wordmark__logo {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  object-fit: contain;
+  /* Use rounded logo for better visual integration */
+  border-radius: 6px;
 }
 .wordmark:hover {
   text-decoration: none;
+  opacity: 0.85;
+}
+/* Adjust logo size in footer */
+.site-footer__brand .wordmark__logo {
+  width: 28px;
+  height: 28px;
 }
 
 /* ── Nav active state ──────────────────────────────────────── */
