@@ -15,6 +15,14 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+export function generateViewport() {
+  return {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  };
+}
+
 export const metadata: Metadata = {
   title: "Passify — Identity verification and compliance for Solana RWA",
   description: "API-first identity verification and compliance rule management for Solana RWA platforms.",
