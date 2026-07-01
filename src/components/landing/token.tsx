@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ContractAddress } from "@/components/site/token-address";
 import { TICKER, TOKEN, formatSupply } from "@/lib/token";
+import { GraphicBackground } from "@/components/graphics";
 
 const POINTS = [
   { title: "Usage credits", body: "Pay for attestations and API throughput. Optional — fiat plans stay available." },
@@ -16,6 +17,26 @@ const POINTS = [
 export function TokenSection() {
   return (
     <section id="token" className="landing-section landing-section--alt">
+      <GraphicBackground
+        src="/assets/graphics/token/token-utility.svg"
+        className="graphic-wrap--token-center"
+        opacity={0.15}
+        animate="float"
+        parallax
+        parallaxSpeed={0.02}
+      />
+      <GraphicBackground
+        src="/assets/graphics/token/governance-network.svg"
+        className="graphic-wrap--token-left"
+        opacity={0.15}
+        animate="drift"
+      />
+      <GraphicBackground
+        src="/assets/graphics/token/staking-ecosystem.svg"
+        className="graphic-wrap--token-right"
+        opacity={0.12}
+        animate="pulse"
+      />
       <div className="container">
         <h2 className="h2 landing-section__heading">The {TICKER} token</h2>
         <p className="landing-section__sub">

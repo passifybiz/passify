@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 200" fill="none">
+  <defs>
+    <linearGradient id="fade-l" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FAFAF7" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#FAFAF7" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#FAFAF7" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#FAFAF7" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="fade-mask">
+      <rect width="1120" height="200" fill="url(#fade-l)"/>
+    </mask>
+  </defs>
+  <g mask="url(#fade-mask)" opacity="0.12">
+    <pattern id="fn-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.4" fill="#14532D"/>
+    </pattern>
+    <rect width="1120" height="200" fill="url(#fn-grid)"/>
+  </g>
+  <g mask="url(#fade-mask)" fill="none" stroke="#14532D" stroke-width="0.5" opacity="0.1">
+    <path d="M560 0 Q280 50, 100 100 Q-50 150, -100 200" />
+    <path d="M560 0 Q840 50, 1020 100 Q1170 150, 1220 200" />
+    <path d="M560 0 Q400 60, 300 120 Q200 180, 150 200" />
+    <path d="M560 0 Q720 60, 820 120 Q920 180, 970 200" />
+    <path d="M560 0 L560 200" />
+  </g>
+  <g mask="url(#fade-mask)" fill="none" stroke="#22C55E" stroke-width="0.3" opacity="0.08">
+    <path d="M560 0 Q280 100, 200 200" />
+    <path d="M560 0 Q840 100, 920 200" />
+  </g>
+  <g mask="url(#fade-mask)" opacity="0.08">
+    <circle cx="400" cy="120" r="40" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.3"/>
+    <circle cx="720" cy="140" r="32" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.3"/>
+    <circle cx="560" cy="80" r="24" stroke="#E5ECE5" stroke-width="0.5" fill="white" fill-opacity="0.2"/>
+  </g>
+</svg>

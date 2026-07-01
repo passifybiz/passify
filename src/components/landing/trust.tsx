@@ -1,8 +1,15 @@
 import Link from "next/link";
+import { GraphicBackground } from "@/components/graphics";
 
 export function Trust() {
   return (
     <section className="landing-section" style={{ padding: "40px 0", borderBottom: "1px solid var(--border)" }}>
+      <GraphicBackground
+        src="/assets/graphics/solution/verification-pipeline.svg"
+        className="graphic-wrap--trust-strip"
+        opacity={0.15}
+        animate="fade"
+      />
       <div className="container">
         <div className="row" style={{ justifyContent: "center", gap: "32px", flexWrap: "wrap" }}>
           <Stat value="0" label="PII stored on-chain" />

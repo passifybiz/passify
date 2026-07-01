@@ -45,6 +45,30 @@ credo-dev.db-wal
 .DS_Store
 nul
 prd_trd_all.txt
+desktop.ini
 
 .vercel
 .env*
+
+# internal docs — strategy, audits, and reviews are not published in the public repo.
+# Keep these locally; do not commit. (See GITHUB_ORGANIZATION_AUDIT.md for the list.)
+/internal/
+ACCESSIBILITY_REPORT.md
+COMPETITIVE_ANALYSIS.md
+COPYWRITING_REVIEW.md
+DEVELOPER_EXPERIENCE.md
+DOCUMENTATION_PLAN.md
+ENTERPRISE_READINESS.md
+GTM_PLAN.md
+INFORMATION_ARCHITECTURE_REVIEW.md
+LIGHTHOUSE_REPORT.md
+MASTER_EXECUTION_PLAN.md
+PRODUCTION_AUDIT.md
+PRODUCT_AUDIT.md
+PRODUCT_EXCELLENCE_REPORT.md
+ROUTE_AUDIT.md
+SECURITY_ROADMAP.md
+TOKEN_STRATEGY.md
+UX_REVIEW.md
+WEBHOOKS_IMPLEMENTATION.md
+GITHUB_ORGANIZATION_AUDIT.md

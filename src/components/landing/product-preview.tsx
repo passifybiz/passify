@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { GraphicBackground } from "@/components/graphics";
 
 const TABS = ["Dashboard", "KYC", "Rules", "Keys", "Audit"] as const;
 type Tab = typeof TABS[number];
@@ -10,6 +11,20 @@ export function ProductPreview() {
 
   return (
     <section className="landing-section">
+      <GraphicBackground
+        src="/assets/graphics/dashboard/dashboard-mesh.svg"
+        className="graphic-wrap--dashboard-full"
+        opacity={0.2}
+        animate="pulse"
+        parallax
+        parallaxSpeed={0.01}
+      />
+      <GraphicBackground
+        src="/assets/graphics/dashboard/compliance-matrix.svg"
+        className="graphic-wrap--dashboard-right"
+        opacity={0.15}
+        animate="drift"
+      />
       <div className="container">
         <h2 className="h2 landing-section__heading">See it in action</h2>
         <p className="landing-section__sub">Interactive preview with example data. Click tabs to explore.</p>

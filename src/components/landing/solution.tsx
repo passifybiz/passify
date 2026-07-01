@@ -1,4 +1,5 @@
 import { AnimateOnScroll } from "./animate-on-scroll";
+import { GraphicBackground } from "@/components/graphics";
 
 const PILLARS = [
   { num: "01", title: "Verify once, use everywhere", desc: "Investors complete KYC once. Every integrated platform reads the same attestation. Zero repeated uploads." },
@@ -9,6 +10,21 @@ const PILLARS = [
 export function Solution() {
   return (
     <section id="solution" className="landing-section">
+      <GraphicBackground
+        src="/assets/graphics/solution/connected-graph.svg"
+        className="graphic-wrap--solution-center"
+        opacity={0.25}
+        animate="float"
+        parallax
+        parallaxSpeed={0.02}
+      />
+      <GraphicBackground
+        src="/assets/graphics/solution/identity-mesh.svg"
+        opacity={0.15}
+        animate="drift"
+        overflow
+        className="graphic-wrap--solution-center"
+      />
       <div className="container">
         <h2 className="h2 landing-section__heading">How Passify solves it</h2>
         <p className="landing-section__sub">

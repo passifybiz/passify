@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" fill="none">
+  <g opacity="0.25">
+    <pattern id="cross-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M18 20 h4 M20 18 v4" stroke="#E5ECE5" stroke-width="0.5"/>
+    </pattern>
+    <rect width="760" height="300" fill="url(#cross-grid)"/>
+  </g>
+  <g fill="none" stroke-width="0.5">
+    <path d="M0 150 Q190 100, 380 150 Q570 200, 760 100" stroke="#14532D" opacity="0.12"/>
+    <path d="M0 180 Q190 220, 380 180 Q570 140, 760 200" stroke="#14532D" opacity="0.1"/>
+    <path d="M0 120 Q190 80, 380 120 Q570 160, 760 80" stroke="#22C55E" opacity="0.08"/>
+  </g>
+  <g fill="none" stroke="#14532D" stroke-width="0.4" opacity="0.2">
+    <path d="M80 150 L80 200 L180 200"/>
+    <path d="M200 150 L200 200 L300 200"/>
+    <path d="M320 150 L320 200 L420 200"/>
+    <path d="M440 150 L440 200 L540 200"/>
+    <path d="M560 150 L560 200 L660 200"/>
+  </g>
+  <g fill="none" stroke="#14532D" stroke-width="0.75" opacity="0.3">
+    <path d="M80 130 L80 100 L180 100 L180 130"/>
+    <path d="M200 130 L200 100 L300 100 L300 130"/>
+    <path d="M440 130 L440 100 L540 100 L540 130"/>
+    <path d="M560 130 L560 100 L660 100 L660 130"/>
+  </g>
+  <g opacity="0.4">
+    <circle cx="80" cy="150" r="4" fill="#14532D"/>
+    <circle cx="200" cy="150" r="4" fill="#14532D"/>
+    <circle cx="320" cy="150" r="4" fill="#14532D"/>
+    <circle cx="440" cy="150" r="4" fill="#14532D"/>
+    <circle cx="560" cy="150" r="4" fill="#14532D"/>
+  </g>
+  <g opacity="0.3">
+    <circle cx="180" cy="200" r="3" fill="#22C55E"/>
+    <circle cx="300" cy="200" r="3" fill="#22C55E"/>
+    <circle cx="420" cy="200" r="3" fill="#22C55E"/>
+    <circle cx="540" cy="200" r="3" fill="#22C55E"/>
+    <circle cx="660" cy="200" r="3" fill="#22C55E"/>
+  </g>
+  <g fill="none" stroke="#22C55E" stroke-width="0.5" opacity="0.15" stroke-dasharray="3 6">
+    <path d="M130 120 Q160 80, 230 110"/>
+    <path d="M370 120 Q400 80, 470 110"/>
+    <path d="M520 160 Q550 200, 620 170"/>
+  </g>
+</svg>

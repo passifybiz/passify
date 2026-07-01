@@ -1,4 +1,5 @@
 import { AnimateOnScroll } from "./animate-on-scroll";
+import { GraphicBackground } from "@/components/graphics";
 
 const PROBLEMS = [
   {
@@ -18,6 +19,20 @@ const PROBLEMS = [
 export function Problem() {
   return (
     <section id="problem" className="landing-section landing-section--alt">
+      <GraphicBackground
+        src="/assets/graphics/problem/disconnected-graph.svg"
+        className="graphic-wrap--problem-left"
+        opacity={0.35}
+        animate="pulse"
+        parallax
+        parallaxSpeed={0.03}
+      />
+      <GraphicBackground
+        src="/assets/graphics/problem/broken-flow.svg"
+        className="graphic-wrap--problem-right"
+        opacity={0.25}
+        animate="drift"
+      />
       <div className="container container--narrow">
         <h2 className="h2 landing-section__heading">Problems Passify addresses</h2>
         <p className="landing-section__sub">
